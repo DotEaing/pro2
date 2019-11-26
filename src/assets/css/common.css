@@ -1,0 +1,292 @@
+/*
+	/*页面通用属性
+*/
+
+@charset "utf-8";
+body {
+  margin: 0;
+  height: 100%;
+  font-family: 'Helvetica Neue', 'Microsoft YaHei', 'Hiragino Sans GB', 'Arail', Arial, Tahoma;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;
+  font-size: 14px;
+}
+pre {
+  font-family: 'Helvetica Neue', 'Microsoft YaHei', 'Hiragino Sans GB', 'Arail', Arial, Tahoma;
+  white-space: pre-wrap;
+}
+html, body, div, a, span, h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd, form, button, input, textarea, select, th, td, img, pre {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font-style: normal;
+  font-weight: normal;
+  list-style: none;
+}
+
+p, ul, ol, dl, dd, h1, h2, h3, h4, h5, h6, form {
+ margin: 0;
+ padding: 0;
+}
+
+h1, h2, h3, em, i, th, caption, cite, code, address{
+  font-style: normal; font-weight: normal;
+}
+
+
+.h1 {
+  font-size: 36px;
+  margin: 20px 0 10px;
+}
+
+.h2 {
+  font-size: 30px;
+  margin: 20px 0 10px;
+}
+
+.h3 {
+  font-size: 24px;
+  margin: 20px 0 10px;
+}
+
+.h4 {
+  font-size: 18px;
+  margin: 10px 0 10px;
+}
+
+.h5 {
+  font-size: 14px;
+  margin: 10px 0 10px;
+}
+
+.h6 {
+  font-size: 12px;
+  margin: 10px 0 10px;
+}
+
+a:focus,
+a:active,
+a:hover {
+  text-decoration: none;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+img {
+  border: 0;
+  vertical-align: middle;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.lf {
+  float: left;
+}
+
+.rf {
+  float: right;
+}
+
+.text-left{
+  text-align: left !important;
+}
+
+.text-right{
+  text-align: right !important;
+}
+
+.text-center{
+  text-align: center !important;
+}
+
+.clear:after,.clearfix:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.block{
+  display: block;
+}
+
+.line{
+  display: inline;
+}
+
+.flex{
+  display: flex;
+}
+
+.inline-block{
+display: inline-block;
+}
+
+body {
+  color: #666;
+  min-width: 1270px;
+}
+.container {
+  width: 100%;
+}
+.mid {
+  margin: 0 auto;
+  width: 1270px;
+}
+.mid--1000 {
+  margin: 0 auto;
+  width: 1000px;
+}
+
+.mid--1150 {
+  margin: 0 auto;
+  width: 1150px;
+}
+
+.pos_rel{
+  position: relative;
+}
+.pos_abs{
+  position: absolute;
+}
+/*改变placeholder中的值*/
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #999;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #999;
+   /*opacity:  1;*/
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #999;
+   /*opacity:  1;*/
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #999;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:    #999;
+}
+
+/*设置间距*/
+.mt--10 {
+  margin-top: 10px !important;
+}
+.mt--15 {
+  margin-top: 15px !important;
+}
+.mt--20 {
+  margin-top: 20px !important;
+}
+.mt--30 {
+  margin-top: 30px !important;
+}
+.mt--50 {
+  margin-top: 50px !important;
+}
+.mt--60 {
+  margin-top: 60px !important;
+}
+.mt--80 {
+  margin-top: 80px !important;
+}
+.mt--100 {
+  margin-top: 100px !important;
+}
+.ml--10 {
+  margin-left: 10px !important;
+}
+.ml--20 {
+  margin-left: 20px !important;
+}
+.ml--30 {
+  margin-left: 30px !important;
+}
+.ml--40 {
+  margin-left: 40px !important;
+}
+.mr--10 {
+  margin-right: 10px !important;
+}
+.mr--20 {
+  margin-right: 20px !important;
+}
+.mb--10 {
+  margin-bottom: 10px !important;
+}
+.mb--20 {
+  margin-bottom: 20px !important;
+}
+.mb--30 {
+  margin-bottom: 30px !important;
+}
+.mb--50 {
+  margin-bottom: 50px !important;
+}
+.pt--10 {
+  padding-top: 10px !important;
+}
+.pt--20 {
+  padding-top: 20px !important;
+}
+.pt--30 {
+  padding-top: 30px !important;
+}
+.pt--50 {
+  padding-top: 50px !important;
+}
+.pb--10 {
+  padding-bottom: 10px !important;
+}
+.pb--20 {
+  padding-bottom: 20px !important;
+}
+.pb--30 {
+  padding-bottom: 30px !important;
+}
+.pb--50 {
+  padding-bottom: 50px !important;
+}
+
+
+/* 布局 */
+.container {
+  margin-top: 30px;
+}
+
+/*(左侧)主体*/
+.container .lay-gd-main {
+  width: 880px;
+  position: relative;
+}
+
+.container .lay-gd-main2 {
+  width: 760px;
+  position: relative;
+}
+
+/*(右侧)边栏*/
+.container .lay-gd-side {
+  width: 360px;
+}
+/*当设置1.0 或 100%时表示不缩放。更大的值放大，更小的值缩小  */
+.cl{
+  zoom: 1;
+}
+.cl:after {
+  content: ".";
+  display: block;
+  height: 0px;
+  clear: both;
+  visibility: hidden;
+}
+
+p {
+  word-wrap: break-word;
+}
