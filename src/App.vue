@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Nav ></Nav>
+    <Nav></Nav>
     <router-view/>
     <Footer></Footer>
   </div>
@@ -17,5 +17,6 @@ export default {
 }
 </script>
 <style>
+
 
 </style>

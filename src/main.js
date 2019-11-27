@@ -3,7 +3,11 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import "./assets/css/common.css"
+import "swiper/dist/css/swiper.min.css";
+import VueAwesomeSwiper from 'vue-awesome-swiper'
 
+
+Vue.use(VueAwesomeSwiper)
 Vue.config.productionTip = false
 
 new Vue({

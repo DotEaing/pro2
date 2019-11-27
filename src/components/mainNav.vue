@@ -1,6 +1,6 @@
 <template>
   <div id="nav">
-      <div class="main">
+      <div class="main pos_rel">
           <div class="box mid">
               <div class="logo lf">
                   <a href="#">
@@ -95,9 +95,11 @@ export default {
 .main{
         text-align: center;
         background: #000;
-         display: flex;
+        
+        display: flex;
         justify-content: center; 
-        height: 100px;       
+        height: 100px; 
+        z-index:9999;      
 }
 
 .main .logo{
