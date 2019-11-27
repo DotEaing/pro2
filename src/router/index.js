@@ -4,9 +4,7 @@ import Home from '../views/Home.vue'
 import Nav from "../components/mainNav.vue"
 import Footer from "../components/footer.vue"
 import carousel_1 from  "../components/top_carousel.vue"
-import carousel_1 from  "../components/top_carou
-
-sel.vue"
+import Line from  "@/components/line.vue"
 
 Vue.use(VueRouter)
 
@@ -35,6 +33,11 @@ const routes = [
     path:'/carousel1',
     name:'carousel1',
     component:carousel_1
+  },
+  {
+    path:'/Line',
+    name:'line',
+    component:Line
   },
 
 
