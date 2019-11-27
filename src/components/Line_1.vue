@@ -1,12 +1,12 @@
 <template>
   <div>
       <div class="Line" :style="background1">
-        <div class="line-box wp cl">
-          <h3 :style="background2">
-            <router-link :to="t.link" class="">
+        <div class="line-box wp cl" v-for="(item,index) of con1" :key="index">
+          <h3 :style="{backgroundImage:item.bg}">
+            <router-link :to="item.arr" class="rf">
                 查看更多
               <span>
-                最新活动
+                {{item.act}}
                 <em class="fa fa-angle-right fa-lg"></em>
               </span>
             </router-link>
@@ -14,29 +14,19 @@
         </div>
       </div>
        
-       <div class="content">
-         
-       </div>
   </div>
 </template>
 
 <script>
 export default {
+    props:["con1"],
     data(){
         return{
-          t:{link:"#"},
           background1:{
             backgroundImage:"url("+require("@/assets/img/common/xpfb.jpg")+")",
             backgroundRepeat: "no-repeat",
             backgroundSize:"covre"
             },
-          background2:{
-            backgroundImage:"url("+require("@/assets/img/common/zuiixn.png")+")",
-            backgroundRepeat:"no-repeat",
-            backgroundSize:"covre"
-            }
-
-
         }
 
     },

@@ -1,18 +1,24 @@
 <template>
   <div>
     <carousel_1></carousel_1>
-    <Line_1></Line_1>
+    <work_moudle></work_moudle>
   </div>
 </template>
 
 <script>
 import carousel_1 from  "@/components/top_carousel.vue"
-import Line_1 from  "@/components/line.vue"
+import work_moudle from "@/components/work_moudle.vue"
 export default {
+  data(){
+    return{
+      
+
+    }
+  },
 
 components:{
 carousel_1,
-Line_1
+work_moudle
 }
 }
 </script>
