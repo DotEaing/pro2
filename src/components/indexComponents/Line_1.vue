@@ -25,7 +25,7 @@ export default {
           background1:{
             backgroundImage:"url("+require("@/assets/img/common/xpfb.jpg")+")",
             backgroundRepeat: "no-repeat",
-            backgroundSize:"covre"
+            backgroundSize: "cover"
             },
         }
 
@@ -33,13 +33,14 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .dd{
   border:  red solid 1px
 }
 
 .Line{
  height: 180px;
+ 
 }
 
 .Line h3{

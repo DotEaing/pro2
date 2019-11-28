@@ -1,13 +1,13 @@
 <template>
   <div>
     <carousel_1></carousel_1>
-    <work_moudle></work_moudle>
+    <work_modules></work_modules>
   </div>
 </template>
 
 <script>
-import carousel_1 from  "@/components/top_carousel.vue"
-import work_moudle from "@/components/work_moudle.vue"
+import carousel_1 from  "@/components/indexComponents/top_carousel.vue"
+import work_modules from "@/components/indexComponents/work_modules.vue"
 export default {
   data(){
     return{
@@ -18,7 +18,7 @@ export default {
 
 components:{
 carousel_1,
-work_moudle
+work_modules
 }
 }
 </script>

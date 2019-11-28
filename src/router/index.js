@@ -1,13 +1,15 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+
 import Home from '../views/Home.vue'
 import Nav from "../components/mainNav.vue"
 import Footer from "../components/footer.vue"
-import carousel_1 from  "../components/top_carousel.vue"
-import Line_1 from  "@/components/Line_1.vue"
-import work_moudle from "@/components/work_moudle.vue"
-import card from "@/components/card.vue"
-import sm_carousel from "../components/sm_carousel.vue"
+import carousel_1 from  "../components/indexComponents/top_carousel.vue"
+import Line_1 from  "@/components/indexComponents/Line_1.vue"
+import work_modules from "@/components/indexComponents/work_modules.vue"
+import card from "@/components/indexComponents/card.vue"
+import sm_carousel from "../components/indexComponents/sm_carousel.vue"
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -42,9 +44,9 @@ const routes = [
     component:Line_1
   },
    {
-     path: '/work_moudle',
-     name: 'work_moudle',
-     component: work_moudle
+     path: '/work_modules',
+     name: 'work_modules',
+     component: work_modules
    },
     {
       path: '/card',

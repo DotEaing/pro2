@@ -79,7 +79,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 /* 动画 */
 .s_title-enter-active, .s_title-leave-active{
     transition: opacity   

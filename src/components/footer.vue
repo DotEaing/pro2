@@ -104,7 +104,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .footer {
     background-color: #001a27;
     padding: 100px 0;

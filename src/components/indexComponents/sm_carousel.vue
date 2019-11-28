@@ -1,31 +1,35 @@
 <template>
 <div>
-  <swiper :options="swiperOption">
-    <swiper-slide  v-for="(slides,index) of swiperSlides" :key="index" > 
-        <div class="card">
+    <div class="mid">
 
-            <router-link :to="slides.addr" >
-                <span>
-                    <img :src="slides.img" :alt="slides.text" width="382" height="256">
+        <swiper :options="swiperOption">
+            <swiper-slide  v-for="(slides,index) of swiperSlides" :key="index" > 
+                <div class="card">
+
+                <router-link :to="slides.addr" >
+                    <span style="width:382px;height:256px">
+                        <img :src="slides.img" :alt="slides.text" >
                     </span>
                     <div class="cl">
                         <h3 class="s">{{slides.text}}</h3>
                         <em class="fa fa-angle-right fa-lg"></em>
                     </div>
-            </router-link>
-        </div>
-    </swiper-slide>
+                </router-link>
+
+            </div>
+        </swiper-slide>
     <!-- <div class="lf">
         <card :con="slides"></card>
     </div> -->
     <div class="swiper-button-prev" slot="button-prev"></div>
     <div class="swiper-button-next" slot="button-next"></div>
   </swiper>
+    </div>
 </div>
 </template>
 
 <script>
-import card from "@/components/card.vue"
+import card from "@/components/indexComponents/card.vue"
   export default {
     name: 'carrousel',
     data() {
@@ -36,14 +40,14 @@ import card from "@/components/card.vue"
             },
             loop:true,
             effect : 'coverflow',
-             slidesPerView: 3,
+             slidesPerView: 4,
             centeredSlides: true,
             coverflowEffect: {
-                rotate: 30,
-                stretch: 10,
-                depth: 60,
+                rotate: 18,
+                stretch: 0,
+                depth: 65,
                 modifier: 2,
-                slideShadows : true
+                slideShadows : false
             },
             navigation: {
                 nextEl: '.swiper-button-next',
@@ -58,11 +62,14 @@ import card from "@/components/card.vue"
         swiperSlides: [
            
             {text:"快意江湖",addr:"#",img:require("@/assets/img/sm_carouserl/1.jpg")},
-            {text:"快意江湖",addr:"#",img:require("@/assets/img/sm_carouserl/1.jpg")},
-            {text:"快意江湖",addr:"#",img:require("@/assets/img/sm_carouserl/1.jpg")},
-            {text:"快意江湖",addr:"#",img:require("@/assets/img/sm_carouserl/1.jpg")}, 
-            {text:"快意江湖",addr:"#",img:require("@/assets/img/sm_carouserl/1.jpg")},
-            {text:"快意江湖",addr:"#",img:require("@/assets/img/sm_carouserl/1.jpg")},
+            {text:"快意江湖",addr:"#",img:require("@/assets/img/sm_carouserl/2.jpg")},
+            {text:"快意江湖",addr:"#",img:require("@/assets/img/sm_carouserl/3.jpg")},
+            {text:"快意江湖",addr:"#",img:require("@/assets/img/sm_carouserl/4.jpg")}, 
+            {text:"快意江湖",addr:"#",img:require("@/assets/img/sm_carouserl/5.jpg")},
+            {text:"快意江湖",addr:"#",img:require("@/assets/img/sm_carouserl/6.jpg")},
+            {text:"快意江湖",addr:"#",img:require("@/assets/img/sm_carouserl/7.jpg")},
+            {text:"快意江湖",addr:"#",img:require("@/assets/img/sm_carouserl/8.jpg")}
+
             
             ]
       }
@@ -90,11 +97,13 @@ import card from "@/components/card.vue"
 
 .card a,span{
     display: block;
+    overflow: hidden;
+    text-align:center
 }
 
 .card a img {
-    width: 100%;
-    height: auto;
+    width: 382px;
+    height: 256px;
 }
 
 .card div {

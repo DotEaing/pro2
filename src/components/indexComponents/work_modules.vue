@@ -6,7 +6,7 @@
     </div>
     <!-- workPlaces -->
     <div class="workPlaces">
-        
+        <sm_carousel></sm_carousel>
     </div>
     <!-- line -->
     <div class="Line">
@@ -30,32 +30,41 @@
     </div>
     <!-- workPlaces -->
     <div class="workPlaces">
-
+        
     </div>
 </div>
     
 </template>
 
 <script>
-import Line_1 from  "@/components/Line_1.vue"
+import Line_1 from  "@/components/indexComponents/Line_1.vue"
+import sm_carousel from "@/components/indexComponents/sm_carousel.vue"
+import {mapState} from "vuex"
 export default {
     data(){
         return{
-            con1:[{act:"最新活动",arr:"#",bg:"url("+require("@/assets/img/common/zuiixn.png")+")"}],
-            con2:[{act:"最新客片",arr:"#",bg:"url("+require("@/assets/img/common/kepian.png")+")"}],
-            con3:[{act:"最新风格",arr:"#",bg:"url("+require("@/assets/img/common/fenggeng.png")+")"}],
-            con4:[{act:"最新资讯",arr:"#",bg:"url("+require("@/assets/img/common/newstit.png")+")"}],
-                
+          
             }
     },
+    
+    computed:{
+        ...mapState({
+        con1:state=>state.work_modules.con1,
+        con2:state=>state.work_modules.con2,
+        con3:state=>state.work_modules.con3,
+        con4:state=>state.work_modules.con4
+        })
+        },
+
     components:{
-        Line_1
+        Line_1,
+        sm_carousel
 
     }
 }
 </script>
 
-<style>
+<style  scoped>
  .workPlaces{
      padding: 100px 0;
      background: #000
