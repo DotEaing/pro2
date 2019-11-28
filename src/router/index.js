@@ -9,6 +9,7 @@ import Line_1 from  "@/components/indexComponents/Line_1.vue"
 import work_modules from "@/components/indexComponents/work_modules.vue"
 import card from "@/components/indexComponents/card.vue"
 import sm_carousel from "../components/indexComponents/sm_carousel.vue"
+import cennuo from "../components/indexComponents/cennuo.vue"
 
 Vue.use(VueRouter)
 
@@ -58,6 +59,12 @@ const routes = [
       name: 'sm_carousel',
       component: sm_carousel
     },
+     {
+       path: '/cennuo',
+       name: 'cennuo',
+       component: cennuo
+     },
+
 
 
 ]

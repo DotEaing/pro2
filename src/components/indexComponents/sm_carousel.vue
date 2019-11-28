@@ -47,7 +47,7 @@ import card from "@/components/indexComponents/card.vue"
                 stretch: 0,
                 depth: 65,
                 modifier: 2,
-                slideShadows : false
+                slideShadows : true
             },
             navigation: {
                 nextEl: '.swiper-button-next',
@@ -74,17 +74,6 @@ import card from "@/components/indexComponents/card.vue"
             ]
       }
     },
-    components:{
-        card 
-    }
-    // mounted() {
-    //   setInterval(() => {
-    //     slidesole.log('simulate async data')
-    //     if (this.swiperSlides.length < 10) {
-    //       this.swiperSlides.push(this.swiperSlides.length + 1)
-    //     }
-    //   }, 3000)
-    // }
   }
 </script>
 
