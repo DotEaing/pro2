@@ -54,7 +54,7 @@ export default {
         con3:state=>state.work_modules.con3,
         con4:state=>state.work_modules.con4
         })
-        },
+    },
 
     components:{
         Line_1,

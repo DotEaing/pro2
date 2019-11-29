@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
   export default {
     name: 'carrousel',
     data() {
@@ -32,20 +33,12 @@
                     loadOnTransitionStart: true,
                 },
         },
-        swiperSlides: [
-            {no:1,src:require("@/assets/img/carousel/(1).jpg")},
-            {no:2,src:require("@/assets/img/carousel/(2).jpg")},
-            {no:3,src:require("@/assets/img/carousel/(3).jpg")}
-            ]
       }
     },
-    // mounted() {
-    //   setInterval(() => {
-    //     console.log('simulate async data')
-    //     if (this.swiperSlides.length < 10) {
-    //       this.swiperSlides.push(this.swiperSlides.length + 1)
-    //     }
-    //   }, 3000)
-    // }
+    computed:{
+      ...mapState({
+        top_carousel:state=>state.top_carousel
+      })
+    }
   }
 </script>
