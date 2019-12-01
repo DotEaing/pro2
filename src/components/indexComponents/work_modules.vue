@@ -14,7 +14,7 @@
     </div>
     <!-- workPlaces -->
     <div class="workPlaces">
-
+        <card></card>    
     </div>
     <!-- line -->
     <div class="Line">
@@ -39,6 +39,7 @@
 <script>
 import Line_1 from  "@/components/indexComponents/Line_1.vue"
 import sm_carousel from "@/components/indexComponents/sm_carousel.vue"
+import card from "@/components/indexComponents/card.vue"
 import {mapState} from "vuex"
 export default {
     data(){
@@ -58,7 +59,8 @@ export default {
 
     components:{
         Line_1,
-        sm_carousel
+        sm_carousel,
+        card
 
     }
 }

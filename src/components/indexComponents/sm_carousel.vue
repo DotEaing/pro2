@@ -37,7 +37,7 @@ import { mapState} from "vuex"
         return {
         swiperOption: {
             autoplay:{
-              delay:5000
+              delay:3000
             },
             loop:true,
             effect : 'coverflow',
@@ -62,11 +62,9 @@ import { mapState} from "vuex"
       }
     },
     
-     computed:{
-        ...mapState({
-        sm_carousel:state=>state.sm_carousel
-        })
-    },
+     computed:{...mapState({
+        swiperSlides:state=>state.sm_carousel.swiperSlides
+        })},
          
   
   }

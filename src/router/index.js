@@ -8,8 +8,10 @@ import carousel_1 from  "../components/indexComponents/top_carousel.vue"
 import Line_1 from  "@/components/indexComponents/Line_1.vue"
 import work_modules from "@/components/indexComponents/work_modules.vue"
 import card from "@/components/indexComponents/card.vue"
+import card2 from "@/components/indexComponents/card2.vue"
 import sm_carousel from "../components/indexComponents/sm_carousel.vue"
 import cennuo from "../components/indexComponents/cennuo.vue"
+
 
 Vue.use(VueRouter)
 
@@ -64,6 +66,11 @@ const routes = [
        name: 'cennuo',
        component: cennuo
      },
+     {
+      path: '/card2',
+      name: 'card2',
+      component: card2
+    },
 
 
 

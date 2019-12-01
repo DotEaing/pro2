@@ -20,7 +20,7 @@ import { mapState } from 'vuex'
         return {
         swiperOption: {
             autoplay:{
-              delay:5000
+              delay:4000
             },
             loop:true,
             effect : 'fade',
@@ -33,12 +33,13 @@ import { mapState } from 'vuex'
                     loadOnTransitionStart: true,
                 },
         },
+        
       }
     },
     computed:{
-      ...mapState({
-        top_carousel:state=>state.top_carousel
-      })
-    }
+     ...mapState({
+        swiperSlides:state=>state.top_carousel.swiperSlides
+       })
   }
+}
 </script>

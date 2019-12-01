@@ -10,6 +10,7 @@
 import carousel_1 from  "@/components/indexComponents/top_carousel.vue"
 import work_modules from "@/components/indexComponents/work_modules.vue"
 import cennuo from "../components/indexComponents/cennuo.vue"
+
 export default {
   data(){
     return{
