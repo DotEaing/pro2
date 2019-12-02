@@ -39,22 +39,14 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
     data(){
         return {
             l:"",
             t:"",
             hoverIndex:-1,
-            hoverIndex2:-1,
-            nav:[
-                {title:"首页",link:"#"},
-                {title:"原创风格",link:"#",s_title:[ {name:"汉唐风",link:"#"}, {name:"江南风",link:"#"}, {name:"戏曲风",link:"#"}, {name:"仙侠风",link:"#"}, {name:"印巴风",link:"#"}, {name:"民族风",link:"#"}],},
-                {title:"最新活动",link:"#"},
-                {title:"最新发布",link:"#"},
-                {title:"最新客片",link:"#"},
-                {title:"新闻资讯",link:"#"},
-                {title:"品牌文化",link:"#"}
-                ],        
+            hoverIndex2:-1,  
         }
     },
          methods:{
@@ -75,7 +67,14 @@ export default {
                 this.l=-1;
                 this.hoverIndex2=-1
             }
-         }
+         },
+         computed:({
+        ...mapState({
+            nav:state=>state.nav.nav,
+            s_title:state=>state.nav.nav
+        })
+    })
+
 }
 </script>
 

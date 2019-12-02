@@ -23,7 +23,7 @@
            
             <ul class="lx cl lf">
             <li class="wb">
-                <a href="http://www.52-0185.demo.taiduyun.com" target="_blank" rel="nofollow">
+                <a href="javascript:void(0)" target="_blank" rel="nofollow">
                 <img src="@/assets/img/common/wb01.png" alt="" srcset="">
                 </a>
             </li>
@@ -33,7 +33,7 @@
                 </a>
                 </li>
             <li class="qq">
-                <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=&amp;menu=yes" target="_blank">
+                <a href="javascript:void(0)" target="_blank">
                     <img src="@/assets/img/common/qq01.png" alt="" srcset="">
                 </a>
             </li>
@@ -41,12 +41,12 @@
 
             <div class="copy rf">
                 <p class="default-pc-copyright">
-                    <span><a href="sitemap.html" target="_blank">网站地图</a></span>
-                    <span><a href="api.php?mod=createsitemap&amp;op=baidu&amp;sub=mobile" target="_blank">sitemapM</a></span>
-                    <span><a href="api.php?mod=createsitemap&amp;op=baidu&amp;sub=pc" target="_blank">sitemapPC</a></span><br>
-                    <span>Copyright © 2019 态度云(<a href="https://www.taiduyun.com" target="_blank">taiduyun.com</a>)版权所有</span>
-                    <span>备案号：<a href="http://www.beian.miit.gov.cn/" rel="nofollow" target="_blank">闽ICP备11018372号-9</a></span><br>
-                    <span class="support">技术支持：<a href="https://www.taiduyun.com" target="_blank">态度云</a></span>
+                    <span><a href="#" target="_blank">网站地图</a></span>
+                    <span><a href="#" target="_blank">sitemapM</a></span>
+                    <span><a href="#" target="_blank">sitemapPC</a></span><br>
+                    <span>Copyright © 2019 *****<a href="#" target="_blank">   </a>版权所有</span>
+                    <span>备案号：<a href="#" rel="nofollow" target="_blank">闽ICP备11018372号-9</a></span><br>
+                    <span class="support">技术支持：<a href="#" target="_blank">态度云</a></span>
                     <span>关键词：请在后台设置网站名称</span>
                     <span></span>
                 </p>
@@ -56,7 +56,7 @@
 
             <div class="addr">
             <ul>
-                <li class="add"><h5>公司地址：</h5><p>北京市长安街1号楼1号大院1楼</p></li>
+                <li class="add"><h5>公司地址：</h5><p>*********************</p></li>
                 <li class="tel"><h5>业务热线：</h5><p>400-888-8888　新人顾问：400-000-0000</p></li>
             <!--   <li class="email"><h5>合作邮箱：</h5><p></p></li>-->
             <!--   <li class="fax"><h5>传　　真：</h5><p></p></li--->
@@ -78,28 +78,30 @@
         </dl>
 
         <div class="top">
-            <img src="@/assets/img/common/top.png" alt="" srcset="">
+            <img src="@/assets/img/common/top.png" alt="" srcset="" @click="toTop">
         </div>
         </div>
         </div>
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
     data(){
         return{
-            hoverIndex:-1,
-              nav:[
-                {title:"首页",link:"#"},
-                {title:"原创风格",link:"#"},
-                {title:"最新活动",link:"#"},
-                {title:"最新发布",link:"#"},
-                {title:"最新客片",link:"#"},
-                {title:"新闻资讯",link:"#"},
-                {title:"品牌文化",link:"#"}
-                ],        
+            hoverIndex:-1,     
         }
-    }
+    },
+
+    methods:{
+       
+    },
+
+    computed:({
+        ...mapState({
+            nav:state=>state.nav.nav
+        })
+    })
 
 }
 </script>

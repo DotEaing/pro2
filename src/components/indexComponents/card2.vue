@@ -1,15 +1,15 @@
 <template>
   <div>
     <ul class="mid cl">
-     <li v-for="(items,index) of item" :key="index" class="card2">
+     <li v-for="(items,index) of item" :key="index" class="card2" v-if="index<=5">
       <router-link :to="items.link">
         <span>
           <img :src="items.src" alt="汉唐风" width="344" height="344">
         </span>
         <ins class="cl">
-          <em class="e01" :style={backgroundImage:icon1}></em>
-          <h3 class="cl">{{items.name}}</h3>
-          <em class="e02"></em>
+          <em class="e01" :style="{backgroundImage:icon1}"></em>
+          <h3 class="cl inline-block">{{items.name}}</h3>
+          <em class="e02" :style="{backgroundImage:icon2}"></em>
         </ins>
         <!-- <div style="display: block; left: 0px; top: 439px;">
           <img src="" _src="" alt="汉唐风" width="344" height="344">
@@ -24,13 +24,15 @@ import {mapState} from 'vuex'
 export default {
   data(){
     return{
-      item:[{name:"仙侠风",src:require("@/assets/img/common/card2/xx.jpg"),link:"#"}],
+      
 
     }
   },
-  conputed:{
+  computed:{
     ...mapState({
-      icon1:state=>state.card2.icon1
+      icon1:state=>state.card2.icon1,
+      icon2:state=>state.card2.icon2,
+      item:state=>state.card2.item
   })}
 }
 </script>
@@ -39,7 +41,7 @@ export default {
 
 .card2{
     float: left;
-    width: 32.666666%;
+    width: 32.333333%;
     margin-right: 1%;
     margin-bottom: 1%;
 }

@@ -6,6 +6,8 @@ import sm_carousel from "./modules/sm_carousel"
 import cennuo from "./modules/cennuo"
 import card from "./modules/card"
 import card2 from "./modules/card2"
+import news from "./modules/news"
+import nav from "./modules/nav"
 
 Vue.use(Vuex)
 
@@ -16,7 +18,9 @@ const store=new Vuex.Store({
         sm_carousel,
         top_carousel,
         card,
-        card2
+        card2,
+        news,
+        nav
       }
 })
 

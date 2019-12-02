@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul class="card_box mid cl">   
-      <li class="card" v-for="(itmes,index) of itme" :key="index">
+      <li class="card" v-for="(itmes,index) of itme" :key="index" v-if="index<=7">
         <router-link :to="itmes.link">
 
           <span>

@@ -11,6 +11,8 @@ import card from "@/components/indexComponents/card.vue"
 import card2 from "@/components/indexComponents/card2.vue"
 import sm_carousel from "../components/indexComponents/sm_carousel.vue"
 import cennuo from "../components/indexComponents/cennuo.vue"
+import news from "../components/indexComponents/news.vue"
+
 
 
 Vue.use(VueRouter)
@@ -71,6 +73,14 @@ const routes = [
       name: 'card2',
       component: card2
     },
+    {
+      path: '/news',
+      name: 'news',
+      component: news
+    },
+
+
+
 
 
 
