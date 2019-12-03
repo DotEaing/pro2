@@ -1,19 +1,19 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Home from '../views/Home.vue'
-import Nav from "../components/mainNav.vue"
-import Footer from "../components/footer.vue"
-import carousel_1 from  "../components/indexComponents/top_carousel.vue"
+import Home from '@/views/Home.vue'
+import Nav from "@/components/mainNav.vue"
+import Footer from "@/components/footer.vue"
+import carousel_1 from  "@/components/indexComponents/top_carousel.vue"
 import Line_1 from  "@/components/indexComponents/Line_1.vue"
 import work_modules from "@/components/indexComponents/work_modules.vue"
 import card from "@/components/indexComponents/card.vue"
 import card2 from "@/components/indexComponents/card2.vue"
-import sm_carousel from "../components/indexComponents/sm_carousel.vue"
-import cennuo from "../components/indexComponents/cennuo.vue"
-import news from "../components/indexComponents/news.vue"
-
-
+import sm_carousel from "@/components/indexComponents/sm_carousel.vue"
+import cennuo from "@/components/indexComponents/cennuo.vue"
+import news from "@/components/indexComponents/news.vue"
+// son
+import login from "@/components/login/login.vue"
 
 Vue.use(VueRouter)
 
@@ -26,7 +26,7 @@ const routes = [
   // {
   //   path: '/about',
   //   name: 'about',
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+  //   component: () => import(/* webpackChunkName: "about" */ '@/views/About.vue')
   // },
   {
     path:'/mainNav',
@@ -77,6 +77,11 @@ const routes = [
       path: '/news',
       name: 'news',
       component: news
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: login
     },
 
 

@@ -7,6 +7,7 @@
                       <img src="@/assets/img/common/logo.png" alt="">
                   </a>    
               </div>
+              <!-- nav -->
                   <div class="main-nav lf">
                       <ul>
                           <li v-for="(name,index) of nav" :key="index" class="lf"
@@ -33,6 +34,14 @@
                           </li>
                       </ul>
                   </div>
+                <!-- login -->
+                  <div class="login">
+                      <ul>
+                        <li><router-link :to="link.login"><em class="fa fa-user-circle-o" aria-hidden="true"></em> 登录</router-link></li>
+                        <li>|</li>
+                        <li><router-link :to="link.register"><em class="fa fa-file-text-o" aria-hidden="true"></em> 注册</router-link></li>
+                      </ul>
+                  </div>
               </div>
           </div>
       </div>
@@ -46,7 +55,8 @@ export default {
             l:"",
             t:"",
             hoverIndex:-1,
-            hoverIndex2:-1,  
+            hoverIndex2:-1, 
+            link:{login:"/login",register:"#"} 
         }
     },
          methods:{
@@ -81,24 +91,23 @@ export default {
 <style scoped>
 /* 动画 */
 .s_title-enter-active, .s_title-leave-active{
-    transition: opacity   
+    transition: opacity 
 }
 
 .s_title-enter, .s_title-leave-to{
     opacity: 0;
 }
-.s_title-leave, .s_title-enter-to{
+/* .s_title-leave, .s_title-enter-to{
     opacity: 1;
-}
+} */
 
 .main{
         text-align: center;
         background: #000;
-        
         display: flex;
         justify-content: center; 
         height: 100px; 
-        z-index:9999;      
+        z-index:9999;  
 }
 
 .main .logo{
@@ -124,7 +133,6 @@ background-color: #000
 
 .main-nav li a {
     display: block;
-   
     font-size: 15px;
     padding: 0 25px;
     color: #dfcca1;
@@ -138,7 +146,36 @@ background-color: #000
     width: 100%;
     background-color: #000
 }
+/* login */
+.login {
+    margin-left:20px ;
+    float: left;
 
+}
+
+.login li{
+    float: left;
+    line-height: 99.5px;
+    background-color: #000;
+    color: #dfcca1;
+    padding:  0 3px;
+}
+
+/* .login li:first-child a p{
+    border-right:#dfcca1 solid 1px 
+} */
+
+.login li a{
+    color:inherit;
+    /* border: #dfcca1 solid 1px ; */
+    font-size: 15px;
+    padding: 3px 10px;
+    cursor: pointer;
+}
+
+.login li a:hover{
+    background: #001a26
+}
 
 
 /* 变化颜色 */
