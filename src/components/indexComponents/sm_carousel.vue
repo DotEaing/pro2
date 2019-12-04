@@ -6,12 +6,12 @@
             <swiper-slide  v-for="(slides,index) of swiperSlides" :key="index" > 
                 <div class="card">
 
-                <router-link :to="slides.addr" >
+                <router-link :to="slides.link" >
                     <span style="width:382px;height:256px">
-                        <img :src="slides.img" :alt="slides.text" >
+                        <img :src="slides.src" :alt="slides.name" >
                     </span>
                     <div class="cl">
-                        <h3 class="s">{{slides.text}}</h3>
+                        <h3 class="s">{{slides.name}}</h3>
                         <em class="fa fa-angle-right fa-lg"></em>
                     </div>
                 </router-link>
@@ -80,7 +80,7 @@ import { mapState} from "vuex"
 .card a,span{
     display: block;
     overflow: hidden;
-    text-align:center
+    name-align:center
 }
 
 .card a img {
@@ -111,14 +111,14 @@ import { mapState} from "vuex"
     float: right;
     line-height: 30px;
     border-radius: 50%;
-    text-align: center;
+    name-align: center;
     background: #032b3e;
     margin-top: 15px;
 }
 
 .s {
     white-space: nowrap;
-    text-overflow: ellipsis;
+    name-overflow: ellipsis;
     overflow: hidden;
     display: block;
 }

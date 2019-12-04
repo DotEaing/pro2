@@ -1,10 +1,24 @@
 <template>
   <div>
     <div class="box" :style="bg">
-        <div class="login_box">
+        <div class="login_box mid pos_rel">
+          <div class="login_body rf pos_abs">
+           <div class="title dd">
+            <div class="logo dd lf">
+               <img src="@/assets/img/common/logo.png" alt="">
+            </div>
+            <span>
+              <h3>
+                登录账号
+              </h3>
+            </span>
+           </div>
+
           <form action="" method="get">
 
           </form>
+
+          </div>
         </div>
     </div>
   </div>
@@ -26,17 +40,33 @@ data(){
 </script>
 
 <style scoped>
- .box{
-   height: 730px;
-   display: flex
- }
-.login_box{
+.dd{
   border: red 2px solid;
-  width: 200px;
-  height: 200px;
-  flex:3
 }
 
+.box{
+  height: 730px;
+  width: 100%;
+  /* position: relative; */
+}
+
+.login_body{
+  /* border: red 2px solid; */
+  width: 400px;
+  height: 350px;
+  right:0% ;
+  top: 100px;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, .5);
+}
+
+.logo{
+  height: 15%;
+}
+
+.title img{
+  height: 50px;
+}
 
 
 </style>
