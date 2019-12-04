@@ -18,7 +18,7 @@ data(){
       backgroundImage:"url("+require("@/assets/img/common/login_bg.jpg"),
       backgroundRepeat: "no-repeat",
       backgroundPosition:"center",
-      // backgroundSize: "cover"
+      backgroundSize: "cover"
     }
   }
 }
