@@ -10,9 +10,6 @@ const state= {
         {name:"民族风",src:require("@/assets/img/common/card2/mz.jpg"),link:"#",src2:require("@/assets/img/common/card2/mz_txt.png")},
         {name:"印巴风",src:require("@/assets/img/common/card2/yb.jpg"),link:"#",src2:require("@/assets/img/common/card2/yb_txt.png")}
       ]
-
-    
-
 };
 const getters={
 

@@ -37,9 +37,9 @@
                 <!-- login -->
                   <div class="login">
                       <ul>
-                        <li><router-link :to="link.login"><em class="fa fa-user-circle-o" aria-hidden="true"></em> 登录</router-link></li>
+                        <li><router-link :to="login"><em class="fa fa-user-circle-o" aria-hidden="true"></em> 登录</router-link></li>
                         <li>|</li>
-                        <li><router-link :to="link.register"><em class="fa fa-file-text-o" aria-hidden="true"></em> 注册</router-link></li>
+                        <li><router-link :to="register"><em class="fa fa-file-text-o" aria-hidden="true"></em> 注册</router-link></li>
                       </ul>
                   </div>
               </div>
@@ -56,7 +56,9 @@ export default {
             t:"",
             hoverIndex:-1,
             hoverIndex2:-1, 
-            link:{login:"/login",register:"#"} 
+            login:{path:"/login", query:{show1:1}},
+            register:{path:'/login', query:{show2:2}}
+
         }
     },
          methods:{
