@@ -15,10 +15,10 @@
            </div>
            <hr>
            <br>
-           <form id="form-login" method="post" action="/login">
+           <form id="form-login" method="get" action="/login">
               <div class="main">
                 <div class="text">
-                  <input type="text" class="innerBox" v-model="L_form.uname" placeholder="请输入您的用户名" name="uname" id="uname" required autofocus>
+                  <input type="text" class="innerBox" v-model="L_form.phone" placeholder="请输入您的手机号" name="uname" id="uname" required autofocus>
                   <span><em class="fa fa-times-circle" aria-hidden="true" @click="reset1"></em></span>
                 </div>
                 <div class="text">
@@ -37,7 +37,7 @@
                          </div>
                      </div>
                 </div>
-                <input class="button_login" type="submit" value="登录" id="bt-login">
+                <input class="button_login" type="submit" value="登录" @click="bt_login()">
               </div>
             </form>
           </div>
@@ -54,7 +54,7 @@
            </div>
            <hr>
            <br>
-            <form id="form-login" method="post" action="/user/login">
+            <form id="form-login" method="get" action="/register">
               <div class="main">
                 <div class="text">
                   <input type="text" class="innerBox" v-model="R_form.email" placeholder="请输入您的邮箱" name="uname" id="uname" required autofocus >
@@ -63,7 +63,7 @@
                 &nbsp;
                 <br>
                  <div class="text">
-                 <input type="text" class="innerBox" v-model="R_form.code" id="password" placeholder="请输入验证码" name="code" required style="width:60%">
+                 <input type="text" class="innerBox" v-model="R_form.r_code" id="password" placeholder="请输入验证码" name="code" required style="width:60%">
                   <div class="reg_code rf" @click="my_code1()">
                         <canvas ref="can1" width="100px" height="40px"  class="lf"></canvas>
                   </div>
@@ -97,22 +97,22 @@
            </div>
            <hr>
            <br>
-             <form id="form-login" method="post" action="change">
+             <form id="form-login" method="get" action="/change">
               <div class="main">
                 
                 <div class="text">
-                  <input type="text" class="innerBox" v-model="L_form.uname" placeholder="请输入您的用户名" name="uname" id="uname" required autofocus>
+                  <input type="text" class="innerBox" v-model="C_form.phone" placeholder="请输入您的手机号" name="uname" id="uname" required autofocus>
                  <div class="mt--15"></div>
                 </div>
 
                 <div class="text">
-                  <input type="text" class="innerBox" v-model="R_form.email" placeholder="请输入您的邮箱" name="uname" id="uname" required autofocus >
+                  <input type="text" class="innerBox" v-model="C_form.email" placeholder="请输入您的邮箱" name="uname" id="uname" required autofocus >
                   <div class="mt--15"></div>
                 </div>
                 &nbsp;
                 <br>
                 <div class="text">
-                 <input type="text" class="innerBox" v-model="R_form.code" id="password" placeholder="请输入验证码" name="code" required style="width:60%">
+                 <input type="text" class="innerBox" v-model="C_form.r_code" id="password" placeholder="请输入验证码" name="code" required style="width:60%">
                   <div class="reg_code rf" @click="my_code2()">
                         <canvas ref="can2" width="100px" height="40px"  class="lf"></canvas>
                   </div>
@@ -145,13 +145,19 @@ data(){
   return{ 
     show:1,
     L_form:{
-      upwd:"",
-      uname:""
+      phone:"",
+      upwd:""
     },
     R_form:{
       email:"",
       r_code:""
     },
+    C_form:{
+      phone:"",
+      email:"",
+      r_code:""
+    },
+
     bg:{
       backgroundImage:"url("+require("@/assets/img/common/login_bg.jpg"),
       backgroundRepeat: "no-repeat",
@@ -161,8 +167,32 @@ data(){
   }
 },
 methods:{
+// 登录
+  bt_login(){
+    // 验证格式
+    if(this.L_form.phone==""||!(/^13[234567890]\d{8}$/.test(this.L_form.phone))||this.L_form.phone.length<11){
+            alert("请输入正确手机号11位");
+            this.reset1()
+            return
+    }else if(this.L_form.upwd == '' || this.L_form.upwd.length < 6 || this.L_form.upwd.length > 16){
+            alert("密码必须为字母加数字且长度6~16位");
+            return
+    };
+        // 发送请求
+          var phone= this.L_form.phone;
+          var upwd = this.L_form.upwd;
+          var obj = {phone,upwd};
+          var url = "/login";             //可能出现参数show的问题
+          this.axios.get(url,{params:{obj}}).then(result=>{
+            console.log(result.data)
+          })
+
+
+  },
+
+
   reset1(){
-    this.L_form.uname="";
+    this.L_form.phone="";
     this.L_form.upwd=""
   },
 
@@ -209,7 +239,7 @@ methods:{
                 ctx.restore();
             }
             code=arr.join("")
-            this.r_code=code.toLowerCase()
+            this.r_code=code.toLowerCase()//不区分大小写
         },
 
          // 更新验证码

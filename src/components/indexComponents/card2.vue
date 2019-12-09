@@ -51,13 +51,15 @@ export default {
         this.animate(direction, 'in');
         },
 
-    handleOut:function(e){
+    handleOut:
+        function(e){
         const direction =this.direction(e);
        console.log(direction);
        this.animate(direction, 'out');
     },
     // 判断方向
-    direction:(e, type)=> {
+    direction:
+        function(e, type){
             const clientX = e.clientX;                           //鼠标相对于浏览器的水平坐标
             const clientY = e.clientY;                           //鼠标相对于浏览器的垂直坐标
             const top = e.target.offsetTop;                      //触发对象的顶部到浏览器顶部的距离
