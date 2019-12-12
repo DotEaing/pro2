@@ -56,8 +56,8 @@ export default {
             t:"",
             hoverIndex:-1,
             hoverIndex2:-1, 
-            login:{path:"/login", query:{show1:1}},
-            register:{path:'/login', query:{show2:2}}
+            login:{path:"/login",},
+            register:{path:'/register',}
 
         }
     },
@@ -152,7 +152,6 @@ background-color: #000
 .login {
     margin-left:20px ;
     float: left;
-
 }
 
 .login li{

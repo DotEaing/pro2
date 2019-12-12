@@ -14,7 +14,8 @@ import cennuo from "@/components/indexComponents/cennuo.vue"
 import news from "@/components/indexComponents/news.vue"
 // son
 import login from "@/components/login/login.vue"
-
+import register from "@/components/login/register.vue"
+import retrievePwd from "@/components/login/retrievePwd.vue"
 Vue.use(VueRouter)
 
 const routes = [
@@ -83,6 +84,17 @@ const routes = [
       name: 'login',
       component: login
     },
+    {
+      path: '/register',
+      name: 'register',
+      component: register
+    },
+    {
+      path: '/retrievePwd',
+      name: 'retrievePwd',
+      component: retrievePwd
+    },
+
 
 
 

@@ -8,6 +8,7 @@ import card from "./modules/card"
 import card2 from "./modules/card2"
 import news from "./modules/news"
 import nav from "./modules/nav"
+import login from "./modules/login"
 
 Vue.use(Vuex)
 
@@ -20,7 +21,8 @@ const store=new Vuex.Store({
         card,
         card2,
         news,
-        nav
+        nav,
+        login
       }
 })
 

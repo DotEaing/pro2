@@ -2,12 +2,14 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import axios from "axios"
+import VueAwesomeSwiper from 'vue-awesome-swiper'
 import "@/assets/css/common.css"
 import "@/assets/css/font-awesome-4.7.0/css/font-awesome.min.css"
 import "swiper/dist/css/swiper.min.css";
 // import "@/assets/js/smoothScroll.js"
-import VueAwesomeSwiper from 'vue-awesome-swiper'
+import axios from "axios"
+axios.defaults.baseURL="http://127.0.0.1:5050/"
+axios.defaults.withCredentials=true
 
 
 Vue.use(VueAwesomeSwiper)

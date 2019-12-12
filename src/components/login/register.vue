@@ -1,82 +1,105 @@
 <template>
   <div>
-    <div class="box cl" :style="bg">
+    <div class="box" :style="bg">
         <div class="login_box mid pos_rel">
           <div class="login_body rf pos_abs">
-            <!-- 登录账号 -->
-           <div class="title  flex ">
+
+            <div class="title  flex ">
             <div class="logo">
                <img src="@/assets/img/common/logo.png" alt="" class="">
             </div>
                  <span class="name">
-                  登录账号
+                  注册账号
                  </span>
            </div>
            <hr>
            <br>
+            <form id="form-login" method="get" action="/register">
               <div class="main">
                 <div class="text">
-                  <input type="text" class="innerBox" v-model="form.phone" placeholder="请输入您的手机号" name="phone" required autofocus>
-                  <span><em class="fa fa-times-circle" aria-hidden="true" @click="reset()"></em></span>
+                  <input type="text" class="innerBox" v-model="form.email" placeholder="请输入您的邮箱" name="email"  required autofocus >
+                  <div class="mt--15"></div>
                 </div>
-                <div class="text">
-                  <input type="password" class="innerBox" v-model="form.upwd" id="password" placeholder="请输入您的密码" name="upwd" required="" minlength="6" maxlength="15">
-                  <span><em class="fa fa-times-circle" aria-hidden="true" @click="reset()"></em></span>
+                &nbsp;
+                <br>
+                 <div class="text">
+                 <input type="text" class="innerBox" v-model="form.r_code"  placeholder="请输入验证码" name="code" required style="width:60%">
+                  <div class="reg_code rf" @click="my_code1()">
+                        <canvas ref="can1" width="100px" height="40px"  class="lf"></canvas>
+                  </div>
+                  <span></span>
                 </div>
+                &nbsp;
+                <br>
+
                <div  class="chose">
                  <div  class="lf chose-box" >
                    <div>
-                     <a  @click="to2">注册账号</a>
+                     <a style="font-size:12px"  @click="to1()" >【已有账号！直接登录】</a>
                   </div>
                 </div> 
-                    <div  class="rf chose-box">
-                      <div style="text-align: right;">
-                        <a @click="to3()">忘记密码?</a>
-                        </div>
-                    </div>
+                    
                 </div>
-                <input class="button_login" type="button" value="登录" @click="bt_login()">
+                <input class="button_login" type="submit" value="下一步" id="bt-register">
               </div>
-            </div>
+            </form>
+
           </div>
+        </div>
     </div>
   </div>
 </template>
 
 <script>
-import axios from "axios"
+import my_can from "@/assets/js/my_can"
 import {mapState,mapActions} from 'vuex'
-
 export default {
-data(){
-  return{ 
-  }
-},
-methods:{
-  ...mapActions(["myclear","bt_login"]),
+  data(){
+    return{ 
+
+    }
+  },
+  methods:{
+  ...mapActions(["myclear"]),
+
+  // 提交表单注册
 
   // 清空表单
   reset(){
-    this.myclear();  // 同this.$store.commit("reset1");
+    this.myclear();  // 同this.$store.commit("reset");
   },
 
-  // 跳转
-  to2(){this.$router.push("/register");this.reset()},
-  to3(){this.$router.push("/retrievePwd"); this.reset()},
+  // 更新验证码
+  my_code1(){
+      my_can.mycanvas(this.$refs.can1);  // 
+      this.code=my_can.mycanvas(this.$refs.can1)//验证码
+      console.log('====================================');
+      console.log(this.code);
+      console.log('====================================');
+  },
 
+ // 跳转
+  to1(){this.$router.push("/login");this.reset()},
 },
 
 computed:{
-  ...mapState({
+    ...mapState({
     form:state=>state.login.form,
     bg:state=>state.login.bg,
   })
-}
+
+},
+mounted(){
+    my_can.mycanvas(this.$refs.can1);
+},
 
 }
 </script>
 
 <style scoped>
+.dd{
+  border: red 2px solid;
+}
 
 .box{
   height: 730px;
