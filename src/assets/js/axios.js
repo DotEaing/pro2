@@ -1,7 +1,7 @@
 import axios from "axios"
 
 var form={
-    login(obj,url,callback) {
+    login(url,obj,callback) {
         axios.get(url,{params:obj})
         .then(callback)  
     },

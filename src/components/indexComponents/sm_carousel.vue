@@ -80,7 +80,7 @@ import { mapState} from "vuex"
 .card a,span{
     display: block;
     overflow: hidden;
-    name-align:center
+    text-align:center
 }
 
 .card a img {
@@ -111,14 +111,14 @@ import { mapState} from "vuex"
     float: right;
     line-height: 30px;
     border-radius: 50%;
-    name-align: center;
+    text-align: center;
     background: #032b3e;
     margin-top: 15px;
 }
 
 .s {
     white-space: nowrap;
-    name-overflow: ellipsis;
+     text-overflow: ellipsis; 
     overflow: hidden;
     display: block;
 }

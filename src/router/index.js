@@ -16,6 +16,7 @@ import news from "@/components/indexComponents/news.vue"
 import login from "@/components/login/login.vue"
 import register from "@/components/login/register.vue"
 import retrievePwd from "@/components/login/retrievePwd.vue"
+import userInfor from "@/components/login/userInfor.vue"
 Vue.use(VueRouter)
 
 const routes = [
@@ -94,6 +95,12 @@ const routes = [
       name: 'retrievePwd',
       component: retrievePwd
     },
+    {
+      path: '/userInfor',
+      name: 'userInfor',
+      component: userInfor
+    },
+
 
 
 

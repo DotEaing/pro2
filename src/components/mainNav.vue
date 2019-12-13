@@ -1,5 +1,5 @@
 <template>
-  <div id="nav">
+  <div class="nav">
       <div class="main pos_rel">
           <div class="box mid">
               <div class="logo lf">
@@ -103,7 +103,7 @@ export default {
     opacity: 1;
 } */
 
-.main{
+.nav .main{
         text-align: center;
         background: #000;
         display: flex;
@@ -112,16 +112,16 @@ export default {
         z-index:9999;  
 }
 
-.main .logo{
+.nav  .main .logo{
     vertical-align: middle;
 }
 
-.main .logo>a {
+.nav  .main .logo>a {
     display: block;
     line-height: 100px;
 }
 
-.main .logo img {
+.nav .main .logo img {
     max-height: 100px;
     margin-right: 20px;
 }

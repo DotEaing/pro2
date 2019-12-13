@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="box" :style="bg">
-        <div class="login_box mid pos_rel">
+    <div class="login_box" :style="bg">
+        <div class=" mid pos_rel">
           <div class="login_body rf pos_abs">
 
-      <div class="title  flex">
+            <div class="title  flex">
             <div class="logo">
                <img src="@/assets/img/common/logo.png" alt="" class="">
             </div>
@@ -54,6 +54,7 @@
 </template>
 
 <script>
+import "@/assets/css/login.css"
 import my_can from "@/assets/js/my_can"
 import {mapState,mapActions } from 'vuex'
 export default {
@@ -62,9 +63,6 @@ export default {
 
     }
   },
-
-
-
   methods:{
  ...mapActions(["myclear"]),
 
@@ -126,123 +124,6 @@ export default {
 </script>
 
 <style scoped>
-.dd{
-  border: red 2px solid;
-}
 
-.box{
-  height: 730px;
-  width: 100%;
-  /* position: relative; */
-}
-
-.login_body{
-  /* border: red 2px solid; */
-  width: 400px;
-  /* height: 400px; */
-  right:0% ;
-  top: 100px;
-  box-sizing: border-box;
-  background: rgba(0, 0, 0, .5);
-  border-radius: 5px;
-  padding: 30px 15px 60px;
-}
-
-
-/* 登录 */
-.title .logo img{
-  height: 50px;
-  padding: 10px;
-}
-
-.title .name{
-  width: 100%;
-  text-align: center;
-  padding: 11px;
-  font-size: 30px;
-  color: #dfcca1;
-}
-
-.main .text{
-      margin-bottom: 20px;
-      font-size: 14px;
-      display: inline-block;
-      width: 100%;
-}
-
-.main .text .innerBox{
-    padding-right: 30px;
-    background-color: #fff;
-    border-radius: 4px;
-    border: 1px solid #dcdfe6;
-    box-sizing: border-box;
-    color: #606266;
-    display: inline-block;
-    font-size: inherit;
-    height: 35px;
-    line-height: 35px;
-    outline: none;
-    padding: 0 15px;
-    transition: border-color .2s cubic-bezier(.645,.045,.355,1);
-    width: 100%;
-}
-
-.main .text span em {
-    position: relative;
-    top: -25px;
-    float: right;
-    margin-right: 20px;
-    cursor: pointer;
-}
-
-.main .chose .chose-box{
-  width: 50%;
-}
-
-.main .chose a {
-    padding-left: 10px;
-    padding-right: 10px;
-    color: #dfcca1;
-    font-size: 16px;
-    cursor: pointer;
-} 
-
-.main a:hover{
-  color: #f8d3a5;
-}
-
-
-.main .button_login{
-    width: 100%;
-    display: inline-block;
-    line-height: 1;
-    white-space: nowrap;
-    cursor: pointer;
-    background: #dfcca1;
-    border: 1px solid #dcdfe6;
-    border-color: #dfcca1;
-    color: #000;
-    text-align: center;
-    box-sizing: border-box;
-    outline: none;
-    margin: 0;
-    transition: .1s;
-    font-weight: 500;
-    padding: 12px 20px;
-    font-size: 14px;
-    border-radius: 4px;
-    margin-top: 20px
-}
-
-.main .button_login:hover{
- background: #f8d3a5;
-}
-
-/* 注册 */
-
-.reg_code{
-    width: 120px;
-    height: 40px;
-}
 
 </style>
