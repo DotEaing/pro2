@@ -15,10 +15,44 @@
            <hr>
            <br>
            <div class="main">
+             <form>
+
                 <div class="text">
-                  <label class="title">昵称 : </label>
+                  <label class="title">设置昵称 : </label>
                   <input type="text" class="innerBox" v-model="form.phone" placeholder="输入昵称（以后可更改）" name="uname" required autofocus>
                 </div>
+
+                <div class="text ">
+                  <label class="title" style=" padding-right:43px">性别 ：</label>
+                  <label class="el-radio">
+                    <span class="el-radio__input ">
+                      <input type="radio" aria-hidden="" tabindex="-1" class=" el-radio__original" name="gender" value="1">
+                      <span class="el-radio__label">男<!----></span>
+                    </span>
+                  </label> 
+                  <label class="el-radio">
+                    <span class="el-radio__input">
+                      <input type="radio" aria-hidden="" tabindex="-1" class=" el-radio__original" name="gender" value="0">
+                      <span class="el-radio__label"> 女<!----></span>
+                    </span>
+                  </label>                 
+                </div>
+                
+                <div class="text">
+                  <label class="title">设置用户名 : </label>
+                  <input type="text" class="innerBox" v-model="form.phone" placeholder="输入用户名（不可更改）" name="uname" required autofocus>
+                </div>
+
+               <div class="text">
+                  <label class="title">设置登陆密码 : </label>
+                  <input type="password" class="innerBox" v-model="form.phone" placeholder="输入密码" name="uname" required autofocus>
+                </div>
+
+                <div class="text">
+                  <label class="title">重复输入密码 : </label>
+                  <input type="password" class="innerBox" v-model="form.phone" placeholder="重新输入密码" name="uname" required autofocus>
+                </div>
+             </form>
            </div>
           </div>
         </div>
@@ -71,8 +105,41 @@ computed:{
       border:rgba(0, 0, 0, 0);
       border-bottom: 1px solid #dfcca1;
       border-radius: 0px;
-      
-
+}
+/* ---------------------- */
+.el-radio{
+  color: #606266;
+    font-weight: 500;
+    line-height: 1;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    white-space: nowrap;
+    outline: none;
+    font-size: 14px;
+    margin-right: 30px;
 }
 
+.el-radio__input{
+    white-space: nowrap;
+    cursor: pointer;
+    outline: none;
+    display: inline-block;
+    line-height: 1;
+    position: relative;
+    vertical-align: middle;
+}
+
+.el-radio__original{
+    opacity: 1;
+    width: 16px;
+    height: 16px;
+    outline: none;
+   
+   
+}
+.el-radio__label{
+      font-size: 16px;
+    padding-left: 10px;
+}
 </style>
