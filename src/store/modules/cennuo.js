@@ -35,7 +35,7 @@ const state = {
             txt2: "退款承诺"
         },
         {
-            src: "//pic.tdy.picdns.com/52-0185/block/2259301902/201811/10/170358dv3RX.jpg@37w_37h_1e_1c.jpg",
+            src: "//pic.tdy.picdns.com/52-0185/block/2259301902/201811/10/170452IN60I.jpg@37w_37h_1e_1c.jpg",
             txt1: "不满意无条件",
             txt2: "重拍承诺"
         },

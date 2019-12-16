@@ -15,44 +15,44 @@
            <hr>
            <br>
            <div class="main">
-             <form>
-
+      
                 <div class="text">
                   <label class="title">设置昵称 : </label>
-                  <input type="text" class="innerBox" v-model="form.phone" placeholder="输入昵称（以后可更改）" name="uname" required autofocus>
+                  <input type="text" class="innerBox" v-model="form.user_name" placeholder="输入昵称（以后可更改）" required autofocus>
                 </div>
 
-                <div class="text ">
+                <div class="text">
                   <label class="title" style=" padding-right:43px">性别 ：</label>
                   <label class="el-radio">
                     <span class="el-radio__input ">
-                      <input type="radio" aria-hidden="" tabindex="-1" class=" el-radio__original" name="gender" value="1">
+                      <input type="radio" aria-hidden="" tabindex="-1" class=" el-radio__original" name="gender" v-model="form.gender" value="1">
                       <span class="el-radio__label">男<!----></span>
                     </span>
                   </label> 
                   <label class="el-radio">
                     <span class="el-radio__input">
-                      <input type="radio" aria-hidden="" tabindex="-1" class=" el-radio__original" name="gender" value="0">
+                      <input type="radio" aria-hidden="" tabindex="-1" class=" el-radio__original" name="gender" v-model="form.gender" value="0">
                       <span class="el-radio__label"> 女<!----></span>
                     </span>
                   </label>                 
                 </div>
-                
+            
                 <div class="text">
-                  <label class="title">设置用户名 : </label>
-                  <input type="text" class="innerBox" v-model="form.phone" placeholder="输入用户名（不可更改）" name="uname" required autofocus>
+                  <label class="title">设置电话号码 : </label>
+                  <input type="text" class="innerBox" v-model="form.phone" placeholder="输入11位手机号码"  required autofocus>
                 </div>
 
                <div class="text">
                   <label class="title">设置登陆密码 : </label>
-                  <input type="password" class="innerBox" v-model="form.phone" placeholder="输入密码" name="uname" required autofocus>
+                  <input type="password" class="innerBox" v-model="form.upwd" placeholder="输入密码"  required autofocus>
                 </div>
 
                 <div class="text">
                   <label class="title">重复输入密码 : </label>
-                  <input type="password" class="innerBox" v-model="form.phone" placeholder="重新输入密码" name="uname" required autofocus>
+                  <input type="password" class="innerBox" v-model="form.check_upwd" placeholder="重新输入密码"  required autofocus>
                 </div>
-             </form>
+                <input class="button_login" type="button" value="完成注册" @click="bt_register()">
+             
            </div>
           </div>
         </div>
@@ -68,6 +68,17 @@ data(){
   return{ 
   }
 },
+
+methods:{
+  ...mapActions(["myclear","bt_register"]),
+
+ // 清空表单
+  reset(){
+    this.myclear();  // 同this.$store.commit("reset1");
+  },
+},
+
+
 
 computed:{
   ...mapState({

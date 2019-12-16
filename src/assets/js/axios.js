@@ -7,7 +7,7 @@ var form={
     },
     
     register(postData,url,callback){
-        axios.get(url,{params:postData})
+        axios.get(url,{params:obj})
         .then(callback)
     }
     

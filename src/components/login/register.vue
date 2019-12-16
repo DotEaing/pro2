@@ -40,7 +40,7 @@
                 </div> 
                     
                 </div>
-               <input class="button_login" type="button" value="下一步" @click="bt_register()">
+               <input class="button_login" type="button" value="下一步" @click="btt_next()">
               </div>
             </form>
 
@@ -61,9 +61,17 @@ export default {
     }
   },
   methods:{
-  ...mapActions(["myclear"]),
+  ...mapActions(["myclear","bt_next"]),
 
-  // 提交表单注册
+  // 提交表单进入完善信息页面
+
+  btt_next(){
+    new Promise((resolve,reject)=>{
+      this.bt_next();
+      resolve("成功");
+      reject("失败")}).then(()=>{this.$router.push('/userInfor')}).catch(()=>{alert("失败")})
+    
+  },
 
   // 清空表单
   reset(){
@@ -73,13 +81,11 @@ export default {
   // 更新验证码
   my_code1(){
       my_can.mycanvas(this.$refs.can1);  // 
-      this.code=my_can.mycanvas(this.$refs.can1)//验证码
+      this.form.code=my_can.mycanvas(this.$refs.can1)//验证码
   },
 
  // 跳转
   to1(){this.$router.push("/login");this.reset()},
-  bt_register(){this.$router.push("/userInfor");}
-
 },
 
 computed:{
@@ -91,6 +97,7 @@ computed:{
 },
 mounted(){
     my_can.mycanvas(this.$refs.can1);
+    this.form.code=my_can.mycanvas(this.$refs.can1)
 },
 
 }
