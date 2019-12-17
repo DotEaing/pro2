@@ -17,7 +17,7 @@
             <form id="form-login" method="get" action="/register">
               <div class="main">
                 <div class="text">
-                  <input type="text" class="innerBox" v-model="form.email" placeholder="请输入您的邮箱" name="email"  required autofocus >
+                  <input type="text" class="innerBox" v-model="form.phone" placeholder="请输入您的号码" name="phone"  required autofocus >
                   <div class="mt--15"></div>
                 </div>
                 &nbsp;
@@ -40,7 +40,7 @@
                 </div> 
                     
                 </div>
-               <input class="button_login" type="button" value="下一步" @click="btt_next()">
+               <input class="button_login" type="button" value="下一步" @click="bt_next()">
               </div>
             </form>
 
@@ -63,15 +63,6 @@ export default {
   methods:{
   ...mapActions(["myclear","bt_next"]),
 
-  // 提交表单进入完善信息页面
-
-  btt_next(){
-    new Promise((resolve,reject)=>{
-      this.bt_next();
-      resolve("成功");
-      reject("失败")}).then(()=>{this.$router.push('/userInfor')}).catch(()=>{alert("失败")})
-    
-  },
 
   // 清空表单
   reset(){

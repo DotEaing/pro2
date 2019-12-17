@@ -2,7 +2,7 @@
 const state= {
   nav:[
       {title:"首页",link:"#"},
-      {title:"原创风格",link:"#",s_title:[ {name:"汉唐风",link:"#"}, {name:"江南风",link:"#"}, {name:"戏曲风",link:"#"}, {name:"仙侠风",link:"#"}, {name:"印巴风",link:"#"}, {name:"民族风",link:"#"}],},
+      {title:"原创风格",link:"#",s_title:[ {name:"汉唐风",link:"#"}, {name:"江南风",link:"#"}, {name:"戏曲风",link:"#"}, {name:"仙侠风",link:"#"}, {name:"影视风",link:"#"}, {name:"中国风",link:"#"}],},
       {title:"最新活动",link:"#"},
       {title:"最新发布",link:"#"},
       {title:"最新客片",link:"#"},

@@ -66,34 +66,6 @@ export default {
   methods:{
  ...mapActions(["myclear"]),
 
-  // 提交表单修改密码
-
- bt_login(){
-    // 验证格式
-    if(state.form.phone==""||!(/^13[234567890]\d{8}$/.test(this.form.phone))||this.form.phone.length<11){
-            alert("请输入正确手机号11位");
-            this.reset1()
-            return
-    }else if(this.form.upwd == '' || this.form.upwd.length < 6 || this.form.upwd.length > 16){
-            alert("密码必须为字母加数字且长度6~16位");
-            return
-    };
-  
-        // 发送请求
-          var phone= this.form.phone;
-          var upwd = this.form.upwd;
-          var obj = {phone,upwd};
-          var url = "login";            
-          this.axios.get(url,{params:obj}).then(res=>{
-            console.log(res.data.code);
-            var code=res.data.code;
-            if (code) {
-              
-            }
-            
-          })
-  },
-
 
   // 清空表单
   reset(){

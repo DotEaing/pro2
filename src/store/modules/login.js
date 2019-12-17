@@ -1,6 +1,4 @@
 import form from "@/assets/js/axios"
-import axios from "axios"
-import routes from "@/router/index.js"
 
 const state= {
   form:{
@@ -8,7 +6,7 @@ const state= {
     upwd:"",
     check_upwd:"",
     email:"",
-    user_name:"",
+    uname:"",
     gender:"",
     r_code:"",
     code:"",
@@ -64,9 +62,9 @@ ch_check_upwd(state){
     throw new Error("check_upwd")
   }
 },
-ch_user_name(state){
-  if (state.form.user_name==""||state.form.user_name.length>6||!(/^[\u4e00-\u9fa5]|[a-zA-Z]|[0-9]$/.test(state.form.user_name))) {
-    throw new Error("user_name")
+ch_uname(state){
+  if (state.form.uname==""||!(/^[\u4E00-\u9FA5A-Za-z0-9_]+$/.test(state.form.uname))||state.form.uname.length>=10) {
+    throw new Error("uname")
   }
 },
 ch_gender(state){
@@ -106,34 +104,52 @@ async bt_login(context){
   }catch(e){
     if (e.message=="phone") {
       alert("请输入正确手机号11位");
+      history.go(0)
       return
     }else if(e.message=="upwd"){
       alert("密码必须为字母加数字且长度6~16位");
+      history.go(0)
       return
     }
   }
 },
 
-  // 提交邮箱
+  // 提交号码
   async bt_next(context){
     try{
       var a= await new Promise((resolve)=>{
-        context.commit("ch_email")
-        resolve("邮箱格式正确")
+        context.commit("ch_phone")
+        resolve("号码格式正确")
       });
       var b =await new Promise((resolve)=>{
         console.log(a)
         context.commit("ch_code")
         resolve("验证码正确")
       });
-        await  console.log(b)
+      var c =await new Promise((resolve,reject)=>{
+        form.find("register",context.state.form,res=>{
+          console.log(res.data.code)
+          // res.data.code==-1?resolve("用户未注册"):reject("reg fild");
+          if (res.data.code==-1) {
+            resolve("用户未注册")
+          } else {
+            var a= new Error("fild")
+            reject(a)
+          }
+        })
+      })
+        await window.open("#/userInfor", "_self");
+              console.log(c,context.state.form)
     }catch(e){
-      if (e.message=="email") {
-        alert("请输入正确邮箱");
-          return
+      if (e.message=="phone") {
+        alert("请输入正确的11位电话号码");
+        history.go(0)
       }else if(e.message=="code"){
         alert("验证码错误");
-          return
+        history.go(0)
+      }else if(e.message=="fild"){
+        alert("用户已存在");
+        history.go(0)
       }
     }
   },
@@ -143,7 +159,7 @@ async bt_login(context){
   async  bt_register(context) {
     try{
     var a= await new Promise((resolve)=>{
-      context.commit("ch_user_name")
+      context.commit("ch_uname")
       resolve("昵称可用")
     });
     var  c=await new Promise((resolve)=>{
@@ -153,8 +169,8 @@ async bt_login(context){
     });
     var d =await new Promise((resolve)=>{
       console.log(c)
-      context.commit("ch_phone")
-      resolve("手机号可用")
+      context.commit("ch_email")
+      resolve("邮箱可用")
     });
     var  e=await new Promise((resolve)=>{
       console.log(d)
@@ -168,33 +184,38 @@ async bt_login(context){
     });
     var g=await new Promise((resolve)=>{
       console.log("成功")
-      // // 外联js文件axios实现注册
-      // form.register("userInfor",context.state.form,res=>{
-      //   resolve(res.data);
-      // })
+      console.log(context.state.form)
+      // 外联js文件axios实现注册
+      form.register("userInfor",context.state.form,res=>{
+        resolve(res.data);
+      })
     })
     await console.log(g)
   }catch(e){
     switch (e.message) {
-      case "user_name":
+      case "uname":
         alert("请输入正确的昵称");
+        history.go(-1)
           break;
       case "gender":
         alert("请填入性别");
+        history.go(-1)
           break;
       case "upwd":
         alert("请输入正确的密码");
+        history.go(-1)
           break;
-      case "phone":
-        alert("请输入正确的电话");
+      case "email":
+        alert("请输入正确邮箱");
+        history.go(-1)
           break;
       case "check_upwd":
         alert("请输入正确的密码");
+        history.go(-1)
           break;
-  }
-  }
-},
-
+      } 
+    }
+  },
 
   // 修改密码
 };

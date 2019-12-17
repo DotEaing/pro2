@@ -18,7 +18,7 @@
       
                 <div class="text">
                   <label class="title">设置昵称 : </label>
-                  <input type="text" class="innerBox" v-model="form.user_name" placeholder="输入昵称（以后可更改）" required autofocus>
+                  <input type="text" class="innerBox" v-model="form.uname" placeholder="输入昵称（以后可更改）" required autofocus>
                 </div>
 
                 <div class="text">
@@ -38,8 +38,8 @@
                 </div>
             
                 <div class="text">
-                  <label class="title">设置电话号码 : </label>
-                  <input type="text" class="innerBox" v-model="form.phone" placeholder="输入11位手机号码"  required autofocus>
+                  <label class="title">设置邮箱 : </label>
+                  <input type="text" class="innerBox" v-model="form.email" placeholder="输入你的邮箱"  required autofocus>
                 </div>
 
                <div class="text">
@@ -116,6 +116,7 @@ computed:{
       border:rgba(0, 0, 0, 0);
       border-bottom: 1px solid #dfcca1;
       border-radius: 0px;
+      color: #dfcca1;
 }
 /* ---------------------- */
 .el-radio{
