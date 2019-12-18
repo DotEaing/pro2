@@ -29,16 +29,31 @@
 </template>
 
 <script>
-import {mapState} from "vuex"
+import {mapState,mapActions} from "vuex"
 export default {
     data(){
         return{
-         
+       
         }
     },
-    computed:{...mapState({
-      itme:state=>state.card.itme
-    })}
+    methods:{
+      ...mapActions(["getImg"]),
+
+      get_img(){
+        this.getImg();
+      },
+    },
+    computed:{
+        ...mapState({
+        itme:state=>state.card.itme 
+      })
+    
+    },
+
+    created(){
+      this.get_img()
+    
+}
 }
 </script>
 

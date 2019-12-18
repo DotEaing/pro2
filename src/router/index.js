@@ -12,11 +12,14 @@ import card2 from "@/components/indexComponents/card2.vue"
 import sm_carousel from "@/components/indexComponents/sm_carousel.vue"
 import cennuo from "@/components/indexComponents/cennuo.vue"
 import news from "@/components/indexComponents/news.vue"
-// son
+// login
 import login from "@/components/login/login.vue"
 import register from "@/components/login/register.vue"
 import retrievePwd from "@/components/login/retrievePwd.vue"
 import userInfor from "@/components/login/userInfor.vue"
+
+// son
+import newPags from "@/components/sonPags/newPags.vue"
 Vue.use(VueRouter)
 
 const routes = [
@@ -28,7 +31,7 @@ const routes = [
   // {
   //   path: '/about',
   //   name: 'about',
-  //   component: () => import(/* webpackChunkName: "about" */ '@/views/About.vue')
+    // component: () => import(/* webpackChunkName: "about" */ '@/views/About.vue')
   // },
   {
     path:'/mainNav',
@@ -100,9 +103,11 @@ const routes = [
       name: 'userInfor',
       component: userInfor
     },
-
-
-
+    {
+      path: '/newPags',
+      name: 'newPags',
+      component: newPags
+    },
 
 
 

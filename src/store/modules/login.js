@@ -96,7 +96,7 @@ async bt_login(context){
     var c=await new Promise((resolve)=>{
       console.log(b)
       // 外联js文件axios实现连接
-      form.login("login",context.state.form,res=>{
+      form.login_get("login",context.state.form,res=>{
         resolve(res.data);
       })
     })
@@ -127,7 +127,7 @@ async bt_login(context){
         resolve("验证码正确")
       });
       var c =await new Promise((resolve,reject)=>{
-        form.find("register",context.state.form,res=>{
+        form.login_get("register",context.state.form,res=>{
           console.log(res.data.code)
           // res.data.code==-1?resolve("用户未注册"):reject("reg fild");
           if (res.data.code==-1) {
@@ -186,7 +186,7 @@ async bt_login(context){
       console.log("成功")
       console.log(context.state.form)
       // 外联js文件axios实现注册
-      form.register("userInfor",context.state.form,res=>{
+      form.login_get("userInfor",context.state.form,res=>{
         resolve(res.data);
       })
     })
@@ -218,6 +218,9 @@ async bt_login(context){
   },
 
   // 修改密码
+  // 外联js文件axios实现查询
+
+  
 };
 
 export default {

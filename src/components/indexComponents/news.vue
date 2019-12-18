@@ -24,8 +24,6 @@ import {mapState} from "vuex"
 export default {
   data(){
     return{
-     bg1:{backgroundImage:require("@/assets/img/sm_carouserl/1.jpg")},
-     bg2:{}
 
     }
   },

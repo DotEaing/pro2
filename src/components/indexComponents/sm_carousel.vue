@@ -29,7 +29,6 @@
 </template>
 
 <script>
-import card from "@/components/indexComponents/card.vue"
 import { mapState} from "vuex"
   export default {
     name: 'carrousel',
