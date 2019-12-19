@@ -42,9 +42,11 @@ server.use( bodyParser.urlencoded({
 /** 路由 */
 
 // 图片
-server.get('/index',(req,res)=>{
+server.get('/home',(req,res)=>{
   // var sql="select class,k_id from panxz_k_img  where "
-  var sql ="select * from ( select * from panxz_k_img group by class) as base "  //group by默认取分组第一条
+  var a=req.query.img_folder;
+  var sql =`select * from ( select * from ${a} group by class) as base` //group by默认取分组第一条
+  console.log(sql);
   pool.query(sql,(err,result)=>{
     if(err) throw err;
     res.send(result)

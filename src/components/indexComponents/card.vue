@@ -1,9 +1,9 @@
 <template>
   <div>
-    <ul class="card_box mid cl">   
-      <li class="card" v-for="(itmes,index) of itme" :key="index" v-if="index<=7">
+   
+      <div class="card" v-for="(itmes,index) of client" :key="index" v-if="index<=7">
+       
         <router-link :to="itmes.link">
-
           <span>
           <!-- img -->
             <ins class="c_img">
@@ -23,8 +23,9 @@
               <em class="e04"></em>
             </div>
         </router-link>
-      </li>
-    </ul>
+
+      </div>
+  
   </div>
 </template>
 
@@ -37,22 +38,20 @@ export default {
         }
     },
     methods:{
-      ...mapActions(["getImg"]),
+      ...mapActions(["get_k_Img"]),
 
-      get_img(){
-        this.getImg();
+      get_img(url){
+        this.get_k_Img(url);
       },
     },
     computed:{
         ...mapState({
-        itme:state=>state.card.itme 
+        client:state=>state.card.client 
       })
     
     },
-
     created(){
-      this.get_img()
-    
+      this.get_img("home")
 }
 }
 </script>

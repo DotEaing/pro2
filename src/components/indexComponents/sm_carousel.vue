@@ -3,11 +3,11 @@
     <div class="mid">
 
         <swiper :options="swiperOption">
-            <swiper-slide  v-for="(slides,index) of swiperSlides" :key="index" > 
+            <swiper-slide  v-for="(slides,index) of new_swiperSlides" :key="index" > 
                 <div class="card">
 
                 <router-link :to="slides.link" >
-                    <span style="width:382px;height:256px">
+                    <span style="width:380px;height:256px">
                         <img :src="slides.src" :alt="slides.name" >
                     </span>
                     <div class="cl">
@@ -17,6 +17,7 @@
                 </router-link>
 
             </div>
+           
         </swiper-slide>
     <!-- <div class="lf">
         <card :con="slides"></card>
@@ -30,6 +31,7 @@
 
 <script>
 import { mapState} from "vuex"
+
   export default {
     name: 'carrousel',
     data() {
@@ -62,9 +64,8 @@ import { mapState} from "vuex"
     },
     
      computed:{...mapState({
-        swiperSlides:state=>state.sm_carousel.swiperSlides
-        })},
-         
+        new_swiperSlides:state=>state.card.new_swiperSlides
+        })}, 
   
   }
 </script>

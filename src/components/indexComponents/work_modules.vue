@@ -1,11 +1,12 @@
 <template>
-<div>
+<div class="main">
+    <div>
     <!-- line -->
     <div class="Line">
         <Line_1 :con1="con1"></Line_1>
     </div>
     <!-- workPlaces -->
-    <div class="workPlaces">
+    <div class="workPlaces mid cl">
         <sm_carousel></sm_carousel>
     </div>
     <!-- line -->
@@ -13,7 +14,7 @@
         <Line_1 :con1="con2"></Line_1>
     </div>
     <!-- workPlaces -->
-    <div class="workPlaces">
+    <div class="workPlaces mid cl">
         <card></card>    
     </div>
     <!-- line -->
@@ -21,7 +22,7 @@
         <Line_1 :con1="con3"></Line_1>
     </div>
     <!-- workPlaces -->
-    <div class="workPlaces">
+    <div class="workPlaces mid cl">
         <card2></card2>
     </div>
     <!-- line -->
@@ -29,8 +30,9 @@
         <Line_1 :con1="con4"></Line_1>
     </div>
     <!-- workPlaces -->
-    <div class="workPlaces">
+    <div class="workPlaces mid cl">
         <news></news>
+    </div>
     </div>
 </div>
     
@@ -71,8 +73,10 @@ export default {
 </script>
 
 <style  scoped>
+.main{
+    background: #000
+}
  .workPlaces{
      padding: 100px 0;
-     background: #000
  }
 </style>

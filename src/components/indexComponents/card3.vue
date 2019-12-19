@@ -1,18 +1,9 @@
 <template>
   <div>
-      <div class="newPags ">
-        <div class="mid "> 
-            <div class="actytit">
-                <img src="@/assets/img/common/sonPags/new.jpg"  width="1188" height="679">
-            </div>
-
-            <div class="workplase">
-              <ul  class=" cl">
-
-               <li class="card lf" v-for="(slides,index) of swiperSlides" :key="index">
+     <div class="card lf"  v-for="(slides,index) of con" :key="index" >
 
                 <router-link :to="slides.link" >
-                    <span style="width:382px;height:256px">
+                    <span style="width:100%;height:256px">
                         <img :src="slides.src" :alt="slides.name" >
                     </span>
                     <div class="cl">
@@ -21,60 +12,28 @@
                     </div>
                 </router-link>
 
-               </li>
-              </ul>
-
-            </div>
-        </div>
-    </div>
+     </div>
   </div>
 </template>
-
 <script>
-import { mapState} from "vuex"
 export default {
-data() {
-  return{
-
-  }
-},
-  computed:{...mapState({
-          swiperSlides:state=>state.sm_carousel.swiperSlides
-          })},
+    props:["con"],
+    data() {
+        return {
+            
+        }
+    },
 }
-
 </script>
 
 <style scoped>
-.newPags{
-  background: #001a26;
-}
-.actytit{
-  text-align: center;
-}
-
-.workplase{
-  margin-top: 30px;
-}
-
-.workplase ul{
- justify-content: center
-}
-
-/* card */
-
 .card{
-    /* width: 380px; */
-    overflow: hidden;
-    width: 30%;
-    margin-right: 2%;
+    width: 31%;
+    margin-right: 1%;
     margin-bottom: 2%;
+    overflow: hidden;
 }
 
-.card a{
-  
-    display: block;
-}
 
 .card a,span{
     display: block;
@@ -84,7 +43,7 @@ data() {
 
 .card a img {
     width: 100%;
-    height: auto;
+    height: 256px;
 }
 
 .card div {
@@ -124,11 +83,9 @@ data() {
 .card  div h3 {
     float: left;
     font-size: 17px;
-    width: 40%;
+    /* width: 80%; */
 }
 .fa{
      color: #dfcca1;
 }
-
-
 </style>

@@ -144,10 +144,10 @@ export default {
   },
   computed:{
     ...mapState({
-      icon1:state=>state.card2.icon1,
-      icon2:state=>state.card2.icon2,
-      item:state=>state.card2.item,
-      bg:state=>state.card2.bg,
+      icon1:state=>state.card.icon1,
+      icon2:state=>state.card.icon2,
+      item:state=>state.card.original,
+      bg:state=>state.card.bg,
   })}
 }
 </script>

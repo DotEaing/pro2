@@ -2,121 +2,73 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Home from '@/views/Home.vue'
-import Nav from "@/components/mainNav.vue"
-import Footer from "@/components/footer.vue"
-import carousel_1 from  "@/components/indexComponents/top_carousel.vue"
-import Line_1 from  "@/components/indexComponents/Line_1.vue"
-import work_modules from "@/components/indexComponents/work_modules.vue"
-import card from "@/components/indexComponents/card.vue"
-import card2 from "@/components/indexComponents/card2.vue"
-import sm_carousel from "@/components/indexComponents/sm_carousel.vue"
-import cennuo from "@/components/indexComponents/cennuo.vue"
-import news from "@/components/indexComponents/news.vue"
+
+// 路由懒加载
 // login
-import login from "@/components/login/login.vue"
-import register from "@/components/login/register.vue"
-import retrievePwd from "@/components/login/retrievePwd.vue"
-import userInfor from "@/components/login/userInfor.vue"
+const login = ()=>import( "@/components/login/login.vue")
+const register  = ()=>import( "@/components/login/register.vue")
+const retrievePwd  = ()=>import( "@/components/login/retrievePwd.vue")
+const userInfor  = ()=>import( "@/components/login/userInfor.vue")
 
 // son
-import newPags from "@/components/sonPags/newPags.vue"
+const newPages  = ()=>import( "@/components/sonPages/newPages.vue")
+const activeityPages  = ()=>import( "@/components/sonPages/activeityPages.vue")
+const clientPages  = ()=>import( "@/components/sonPages/clientPages.vue")
+
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/home',
     name: 'home',
     component: Home
   },
-  // {
-  //   path: '/about',
-  //   name: 'about',
-    // component: () => import(/* webpackChunkName: "about" */ '@/views/About.vue')
-  // },
   {
-    path:'/mainNav',
-    name:'mainNav',
-    component:Nav
+    path: '/login',
+    name: 'login',
+    component: login
   },
   {
-    path:'/footer',
-    name:'footer',
-    component:Footer
+    path: '/register',
+    name: 'register',
+    component: register
   },
   {
-    path:'/carousel1',
-    name:'carousel1',
-    component:carousel_1
+    path: '/retrievePwd',
+    name: 'retrievePwd',
+    component: retrievePwd
   },
   {
-    path:'/Line_1',
-    name:'Line_1',
-    component:Line_1
+    path: '/userInfor',
+    name: 'userInfor',
+    component: userInfor
   },
-   {
-     path: '/work_modules',
-     name: 'work_modules',
-     component: work_modules
-   },
-    {
-      path: '/card',
-      name: 'card',
-      component: card
-    },
-    {
-      path: '/sm_carousel',
-      name: 'sm_carousel',
-      component: sm_carousel
-    },
-     {
-       path: '/cennuo',
-       name: 'cennuo',
-       component: cennuo
-     },
-     {
-      path: '/card2',
-      name: 'card2',
-      component: card2
-    },
-    {
-      path: '/news',
-      name: 'news',
-      component: news
-    },
-    {
-      path: '/login',
-      name: 'login',
-      component: login
-    },
-    {
-      path: '/register',
-      name: 'register',
-      component: register
-    },
-    {
-      path: '/retrievePwd',
-      name: 'retrievePwd',
-      component: retrievePwd
-    },
-    {
-      path: '/userInfor',
-      name: 'userInfor',
-      component: userInfor
-    },
-    {
-      path: '/newPags',
-      name: 'newPags',
-      component: newPags
-    },
-
-
-
+  {
+    path: '/newPages',
+    name: 'newPages',
+    component: newPages
+  },
+  {
+    path: '/activeityPages',
+    name: 'activeityPages',
+    component: activeityPages
+  },
+  {
+    path: '/clientPages',
+    name: 'clientPages',
+    component: clientPages
+  },
 
 
 ]
 
 const router = new VueRouter({
-  routes
+  mode: 'history',
+  routes,
+  scrollBehavior (to, from, savedPosition) {
+    // return 期望滚动到哪个的位置
+    return { x: 0, y: 0 }
+  }
 })
 
 export default router
