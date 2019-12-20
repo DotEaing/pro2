@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState} from 'vuex'
   export default {
     name: 'carrousel',
     data() {
@@ -34,10 +34,12 @@ import { mapState } from 'vuex'
         
       }
     },
+    
     computed:{
      ...mapState({
         swiperSlides:state=>state.top_carousel.swiperSlides
        })
-  }
+  },
+
 }
 </script>

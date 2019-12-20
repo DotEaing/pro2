@@ -1,7 +1,7 @@
 <template>
   <div>
    
-      <div class="card" v-for="(itmes,index) of client" :key="index" v-if="index<=7">
+      <div class="card" v-for="(itmes,index) of client" :key="index" v-if="index<8">
        
         <router-link :to="itmes.link">
           <span>
@@ -34,25 +34,15 @@ import {mapState,mapActions} from "vuex"
 export default {
     data(){
         return{
-       
         }
     },
-    methods:{
-      ...mapActions(["get_k_Img"]),
-
-      get_img(url){
-        this.get_k_Img(url);
-      },
-    },
+  
     computed:{
         ...mapState({
         client:state=>state.card.client 
       })
-    
     },
-    created(){
-      this.get_img("home")
-}
+
 }
 </script>
 
@@ -66,10 +56,8 @@ export default {
     
 }
 
-
 .card a {
     display: block;
-    
 }
 
 .card span {
@@ -79,7 +67,6 @@ export default {
     overflow: hidden;
     height: 435px;
 }
-
 
 .card img {
   width: 100%;

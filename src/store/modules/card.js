@@ -6,17 +6,8 @@ const state= {
     n_img:"panxz_n_img"
   },
   
-  // card1
-  client:[
-    {name:"一寸心",src:require("../../../../serve/public/k_img/01/(1).jpg"),link:"#"},
-    {name:"一寸心",src:require("../../../../serve/public/k_img/02/(1).jpg"),link:"#"},
-    {name:"一寸心",src:require("../../../../serve/public/k_img/03/(1).jpg"),link:"#"},
-    {name:"一寸心",src:require("../../../../serve/public/k_img/04/(1).jpg"),link:"#"},
-    {name:"一寸心",src:require("../../../../serve/public/k_img/05/(1).jpg"),link:"#"},
-    {name:"一寸心",src:require("../../../../serve/public/k_img/06/(1).jpg"),link:"#"},
-    {name:"一寸心",src:require("../../../../serve/public/k_img/07/(1).jpg"),link:"#"},
-    {name:"一寸心",src:require("../../../../serve/public/k_img/08/(1).jpg"),link:"#"},
-    ],
+  // card
+  client:[ ],
 
 // card2
   icon1:"url("+require("@/assets/img/common/card2/ico01.png")+")",
@@ -38,44 +29,79 @@ const state= {
   },
 
   // card3
-  new_swiperSlides: [
-    {name:"快意江湖",link:"#",src:require("@/assets/img/sm_carouserl/1.jpg")},
-    {name:"快意江湖",link:"#",src:require("@/assets/img/sm_carouserl/2.jpg")},
-    {name:"快意江湖",link:"#",src:require("@/assets/img/sm_carouserl/3.jpg")},
-    {name:"快意江湖",link:"#",src:require("@/assets/img/sm_carouserl/4.jpg")}, 
-    {name:"快意江湖",link:"#",src:require("@/assets/img/sm_carouserl/5.jpg")},
-    {name:"快意江湖",link:"#",src:require("@/assets/img/sm_carouserl/6.jpg")},
-    {name:"快意江湖",link:"#",src:require("@/assets/img/sm_carouserl/7.jpg")},
-    {name:"快意江湖",link:"#",src:require("@/assets/img/sm_carouserl/8.jpg")}
-  ]
+  new_swiperSlides: [ ]
  
 };
 const getters={
+  // 去重
+  delReset:(state)=>{
+    // let res = new Map();
+    // console.log(res)
+    // return  state.new_swiperSlides.filter((a) => !res.has(a.name) && res.set(a.name,state.new_swiperSlides.name)),console.log(state.new_swiperSlides)
+    var obj = {};
+     state.new_swiperSlides=state.new_swiperSlides.reduce((item, next)=>{
+                  var a=JSON.stringify(state.new_swiperSlides)
+                  console.log('item',item)
+                  console.log('next',next);
+                  next=JSON.stringify(next)
+                  console.log('====================================');
+                  console.log(a);
+                  console.log('====================================');
+                  // obj[next.name] ? '' : obj[next.name] = true && item.push(next);
+                  return item;
+            }, []),
+            
+            console.log(state.new_swiperSlides);
+  },
 
 };
 const mutations= {
+ 
   
-
 };
 const actions={
-  
+
 async get_k_Img(context,url){
   console.log(url)
   var a = await new Promise((resolve,reject)=>{
     // 获取图片地址
     form.img(url,context.state.img_folder.k_img,res=>{
-      for(var a of res.data ){
-        console.log(a.src)
-      }
+       resolve(res.data)
     })
   })
+   await new Promise ((resolve)=>{ 
+    // 遍历数据中需要的数据
+    for (const t of a) {
+      // 构建对象
+        var obj ={name:t.name,src:require(`../../../../serve/${t.src}`),link:`${t.link}`}
+      // 拼接到item末尾
+      context.state.client.push(obj)
+
+    }
+  }) 
+},
+
+async get_n_Img(context,url){
+  console.log(url)
+  var a = await new Promise((resolve,reject)=>{
+    // 获取图片地址
+    form.img(url,context.state.img_folder.n_img,res=>{
+       resolve(res.data)
+    })
+  })
+   await new Promise ((resolve)=>{ 
+    // 遍历数据中需要的数据
+    for (const t of a) {
+      // 构建对象
+        var obj ={name:t.name,src:require(`../../../../serve/${t.src}`),link:`${t.link}`}
+      // 拼接到item末尾
+      context.state.new_swiperSlides.push(obj)
+    }
+  }) 
 }
 
-// 将遍历到的数据中需要的数据取出
 
-// 拼接字符串
 
-// 添加到item末尾
 
 };
 

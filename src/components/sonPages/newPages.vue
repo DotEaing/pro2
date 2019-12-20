@@ -24,22 +24,22 @@ data() {
   }
 },
 
- methods:{
-      ...mapActions(["getImg"]),
+//  methods:{
+//       ...mapActions(["get_n_Img"]),
         
-        get_img(){
-          this.getImg();
-        },
-    },
+//         get_img(url){
+//           this.get_n_Img(url);
+//         },
+//     },
 
   computed:{...mapState({
           new_swiperSlides:state=>state.card.new_swiperSlides
           })},
 
-  created(){
-      // 发送请求每一组样片的第一张
-      this.get_img()
-  },
+  // created(){
+  //     // 发送请求每一组样片的第一张
+  //     this.get_img("/home")
+  // },
 
 components:{
         card3,

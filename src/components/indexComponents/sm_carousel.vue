@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { mapState} from "vuex"
+import { mapState,mapActions} from "vuex"
 
   export default {
     name: 'carrousel',
@@ -38,11 +38,11 @@ import { mapState} from "vuex"
         return {
         swiperOption: {
             autoplay:{
-              delay:3000
+              delay:2000
             },
             loop:true,
             effect : 'coverflow',
-             slidesPerView: 4,
+            slidesPerView: 4,
             centeredSlides: true,
             coverflowEffect: {
                 rotate: 18,
@@ -62,7 +62,7 @@ import { mapState} from "vuex"
         }
       }
     },
-    
+
      computed:{...mapState({
         new_swiperSlides:state=>state.card.new_swiperSlides
         })}, 
