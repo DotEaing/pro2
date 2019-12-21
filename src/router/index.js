@@ -7,13 +7,17 @@ import Home from '@/views/Home.vue'
 // login
 const login = ()=>import( "@/components/login/login.vue")
 const register  = ()=>import( "@/components/login/register.vue")
-const retrievePwd  = ()=>import( "@/components/login/retrievePwd.vue")
 const userInfor  = ()=>import( "@/components/login/userInfor.vue")
+const retrievePwd  = ()=>import( "@/components/login/retrievePwd.vue")
+const retrievePwd2  = ()=>import( "@/components/login/retrievePwd2.vue")
 
 // son
 const newPages  = ()=>import( "@/components/sonPages/newPages.vue")
 const activeityPages  = ()=>import( "@/components/sonPages/activeityPages.vue")
 const clientPages  = ()=>import( "@/components/sonPages/clientPages.vue")
+// oroginal
+
+
 
 Vue.use(VueRouter)
 
@@ -23,6 +27,7 @@ const routes = [
     name: 'home',
     component: Home
   },
+  // login
   {
     path: '/login',
     name: 'login',
@@ -34,15 +39,21 @@ const routes = [
     component: register
   },
   {
+    path: '/userInfor',
+    name: 'userInfor',
+    component: userInfor
+  },
+  {
     path: '/retrievePwd',
     name: 'retrievePwd',
     component: retrievePwd
   },
   {
-    path: '/userInfor',
-    name: 'userInfor',
-    component: userInfor
+    path: '/retrievePwd2',
+    name: 'retrievePwd2',
+    component: retrievePwd2
   },
+  // son
   {
     path: '/newPages',
     name: 'newPages',

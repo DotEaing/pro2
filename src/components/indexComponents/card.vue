@@ -1,7 +1,7 @@
 <template>
   <div>
    
-      <div class="card" v-for="(itmes,index) of client" :key="index" v-if="index<8">
+      <div class="card" v-for="(itmes,index) of con" :key="index">
        
         <router-link :to="itmes.link">
           <span>
@@ -30,17 +30,11 @@
 </template>
 
 <script>
-import {mapState,mapActions} from "vuex"
 export default {
+    props:["con"],
     data(){
         return{
         }
-    },
-  
-    computed:{
-        ...mapState({
-        client:state=>state.card.client 
-      })
     },
 
 }

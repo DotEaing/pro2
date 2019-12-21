@@ -45,7 +45,7 @@
                   </div>
                 </div> 
                 </div>
-                <input class="button_login" type="button" value="下一步" id="bt-register">
+                <input class="button_login" type="button" value="下一步"  @click="bt_reset_next()">
               </div>
           </div>
           </div>
@@ -64,7 +64,7 @@ export default {
     }
   },
   methods:{
- ...mapActions(["myclear"]),
+ ...mapActions(["myclear","bt_reset_next"]),
 
 
   // 清空表单
@@ -90,6 +90,10 @@ export default {
   
   mounted(){
     my_can.mycanvas(this.$refs.can2);
+     this.form.code=my_can.mycanvas(this.$refs.can2)
+    console.log('====================================');
+    console.log(this.form);
+    console.log('====================================');
 },
 
 }

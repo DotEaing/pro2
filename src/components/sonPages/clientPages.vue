@@ -7,7 +7,7 @@
             </div>
             <div class="workplase mid cl">
             <!-- 修改传入子组件的对象就可以 -->
-                <card></card> 
+                <card :con="client"></card> 
             </div>
         </div>
     </div>
@@ -24,7 +24,7 @@ data(){
   }
 },
  computed:{...mapState({
-          card3:state=>state.card3.swiperSlides
+          client:state=>state.card.client
           })},
 
 components:{

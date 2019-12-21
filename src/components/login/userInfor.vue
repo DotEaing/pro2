@@ -78,13 +78,15 @@ methods:{
   },
 },
 
-
-
 computed:{
   ...mapState({
     form:state=>state.login.form,
     bg:state=>state.login.bg,
   })
+},
+created(){
+  // 路由传参(可见)
+  this.form.phone=this.$route.query.phone;
 }
 }
 </script>

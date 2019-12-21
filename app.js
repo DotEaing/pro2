@@ -139,4 +139,63 @@ server.get('/register',(req,res)=>{
 
   })
 
+  // 查询
+  server.get("/retrievePwd",(req,res)=>{
+    //(1)获取脚手架参数 uname upwd
+    var phone = req.query.phone;
+    var email = req.query.email;
+    console.log(email,phone);
+    
+    //(2)创建sql语句查询
+    var sql = "SELECT * FROM panxz_user WHERE phone=? AND email = ?";
+    console.log(sql);
+    
+    //(3)执行sql语句
+    pool.query(sql,[phone,email],(err,result)=>{
+        if (err) throw err;
+        console.log(result);
+     //(4)获取执行结果
+     //(5)判断查询是否成功 result.length
+     
+     if(result.length==0){
+       res.send({code:-1,msg:"手机或密码有误"})
+     }else{
+       //5.1:保存用户id在session对象中
+       //result数据格式 [{id:1}]
+       req.session.uid = result[0].uid;
+      res.send({code:1,msg:"登录成功","result":result});
+  }
+      //(6)将结果返回脚手架
+    })
+  })
+
+  // 修改
+
+  server.get("/retrievePwd2",(req,res)=>{
+    //(1)获取脚手架参数 uname upwd
+    var phone = req.query.phone;
+    var email = req.query.email;
+    var new_upwd = req.query.new_upwd;
+    
+    console.log(email,phone,new_upwd);
+    
+    //(2)创建sql语句查询
+    var sql = " UPDATE panxz_user SET upwd = ? WHERE email = ? AND phone=?";
+    console.log(sql);
+    
+    //(3)执行sql语句
+    pool.query(sql,[new_upwd,email,phone],(err,result)=>{
+        if (err) throw err;
+        console.log(result);
+
+     if(result.affectedRows==1){
+       res.send({code:1,msg:"修改成功"})
+     }else{
+      res.send({code:-1,msg:"修改失败","result":result});
+  }
+      // (6)将结果返回脚手架
+    })
+  })
+
+
 

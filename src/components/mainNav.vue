@@ -14,7 +14,7 @@
                            :class="{'hoverBg':index == hoverIndex}"  
                            @mouseenter="show(index);"
                            @mouseleave=" disappear()">
-                           <router-link :to="name.link" >
+                           <router-link :to="name.link" @click="reset_card()">
                                {{name.title}}
                            </router-link>
                             <transition name="s_title">
@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import {mapState,mapMutations} from 'vuex'
 export default {
     data(){
         return {
@@ -84,7 +84,8 @@ export default {
         ...mapState({
             nav:state=>state.nav.nav,
             s_title:state=>state.nav.nav
-        })
+        }),
+        ...mapMutations(["reset_card"])
     })
 
 }

@@ -15,7 +15,9 @@
     </div>
     <!-- workPlaces -->
     <div class="workPlaces mid cl">
-        <card></card>    
+        <keep-alive>
+            <card :con="client"></card>    
+        </keep-alive>
     </div>
     <!-- line -->
     <div class="Line">
@@ -40,11 +42,11 @@
 
 <script>
 const Line_1 =()=> import( "@/components/indexComponents/Line_1.vue")
-const sm_carousel  =()=> import( "@/components/indexComponents/sm_carousel.vue")
+// const sm_carousel  =()=> import( "@/components/indexComponents/sm_carousel.vue")
 const card  =()=> import( "@/components/indexComponents/card.vue")
 const card2  =()=> import( "@/components/indexComponents/card2.vue")
 const news  =()=> import( "@/components/indexComponents/news.vue")
-import {mapState,mapActions,mapGetters} from "vuex"
+import {mapState,mapActions,mapGetters,mapMutations} from "vuex"
 export default {
     data(){
         return{
@@ -53,15 +55,12 @@ export default {
     },
     
     methods:{
-      ...mapActions(["get_n_Img","get_k_Img"]),
-        
+        ...mapActions(["get_n_Img","get_k_Img"]),
+        ...mapMutations(["reset_card"]),
         get_img(url){
           this.get_n_Img(url);
           this.get_k_Img(url);
         },
-        del_Reset(){
-            this.delReset
-        }
 
     },
     
@@ -73,25 +72,27 @@ export default {
         con3:state=>state.work_modules.con3,
         con4:state=>state.work_modules.con4
         }),
-        ...mapGetters(['delReset'])
+        ...mapGetters(['delReset']),
+        ...mapState({client:state=>state.card.client})
     },
 
     components:{
         "Line_1":Line_1,
-        "sm_carousel":sm_carousel,
+        "sm_carousel":resolve=>setTimeout((require(['@/components/indexComponents/sm_carousel.vue'],resolve)),0),
         "card":card,
         "card2":card2,
         "news":news
 
     },
-
+    beforeCreate(){
+        // 发送请求每一组样片的第一张
+    },
     created(){
-      // 发送请求每一组样片的第一张
-      this.get_img("/home")
-      
-  },
+        this.reset_card()
+        },
     mounted(){
-        this.delReset
+      this.get_img("/home");
+        
     }
   
 
