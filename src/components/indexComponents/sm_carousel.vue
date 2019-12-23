@@ -3,25 +3,21 @@
     <div class="mid">
 
         <swiper :options="swiperOption">
-            <swiper-slide  v-for="(slides,index) of new_swiperSlides" :key="index" > 
+            <swiper-slide  v-for="(slides,index) of con" :key="index" > 
                 <div class="card">
 
-                <router-link :to="slides.link" >
-                    <span style="width:380px;height:256px">
-                        <img :src="slides.src" :alt="slides.name" >
-                    </span>
-                    <div class="cl">
-                        <h3 class="s">{{slides.name}}</h3>
-                        <em class="fa fa-angle-right fa-lg"></em>
-                    </div>
-                </router-link>
+                    <router-link :to="slides.link" >
+                        <span style="width:380px;height:256px">
+                            <img :src="slides.src" :alt="slides.name" >
+                        </span>
+                        <div class="cl">
+                            <h3 class="s">{{slides.name}}</h3>
+                            <em class="fa fa-angle-right fa-lg"></em>
+                        </div>
+                    </router-link>
+                </div>
+            </swiper-slide>
 
-            </div>
-           
-        </swiper-slide>
-    <!-- <div class="lf">
-        <card :con="slides"></card>
-    </div> -->
     <div class="swiper-button-prev" slot="button-prev"></div>
     <div class="swiper-button-next" slot="button-next"></div>
   </swiper>
@@ -33,6 +29,7 @@
 import { mapState,mapActions} from "vuex"
 
   export default {
+    props:["con"],
     name: 'carrousel',
     data() {
         return {
@@ -63,10 +60,21 @@ import { mapState,mapActions} from "vuex"
       }
     },
 
-     computed:{...mapState({
-        new_swiperSlides:state=>state.card.new_swiperSlides
-        })}, 
-  
+    //  computed:{...mapState({
+    //     new_swiperSlides:state=>state.card.new_swiperSlides
+    //     })}, 
+    // methods:{
+    // ...mapActions(["get_n_Img"]),
+    //     get_img(url){ this.get_n_Img(url)}
+
+    // },
+    // computed:{
+    //     ...mapState({new_swiperSlides:state=>state.card.new_swiperSlides})
+    // },
+    // mounted(){
+    //       this.new_swiperSlides==""?this.get_img("/home"):console.log(this.new_swiperSlides);
+    // }     
+
   }
 </script>
 

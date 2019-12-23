@@ -29,6 +29,12 @@ data(){
 
 components:{
         card,
+    },
+     mounted(){
+    
+        console.log('====================================');
+        console.log(this.client);
+        console.log('====================================');
     }
 }
 </script>

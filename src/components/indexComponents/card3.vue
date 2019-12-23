@@ -16,6 +16,7 @@
   </div>
 </template>
 <script>
+import { mapState,mapActions} from "vuex"
 export default {
     props:["con"],
     data() {
@@ -23,6 +24,18 @@ export default {
             
         }
     },
+    // methods:{
+    //     ...mapActions(["get_n_Img"]),
+    // get_n_img(url){
+    //       this.get_n_Img(url);
+    //     },
+    // },
+    // computed:{
+    //     ...mapState({new_swiperSlides:state=>state.card.new_swiperSlides})
+    // },
+    //   mounted(){
+    //      this.new_swiperSlides==""?this.get_n_img("/home"):console.log(this.new_swiperSlides);
+    // }     
 }
 </script>
 

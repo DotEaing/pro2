@@ -7,7 +7,7 @@
     </div>
     <!-- workPlaces -->
     <div class="workPlaces mid cl">
-        <sm_carousel></sm_carousel>
+        <sm_carousel :con="new_swiperSlides"></sm_carousel>
     </div>
     <!-- line -->
     <div class="Line">
@@ -15,9 +15,7 @@
     </div>
     <!-- workPlaces -->
     <div class="workPlaces mid cl">
-        <keep-alive>
-            <card :con="client"></card>    
-        </keep-alive>
+        <card :con="client"></card>    
     </div>
     <!-- line -->
     <div class="Line">
@@ -42,7 +40,7 @@
 
 <script>
 const Line_1 =()=> import( "@/components/indexComponents/Line_1.vue")
-// const sm_carousel  =()=> import( "@/components/indexComponents/sm_carousel.vue")
+const sm_carousel  =()=> import( "@/components/indexComponents/sm_carousel.vue")
 const card  =()=> import( "@/components/indexComponents/card.vue")
 const card2  =()=> import( "@/components/indexComponents/card2.vue")
 const news  =()=> import( "@/components/indexComponents/news.vue")
@@ -57,11 +55,12 @@ export default {
     methods:{
         ...mapActions(["get_n_Img","get_k_Img"]),
         ...mapMutations(["reset_card"]),
-        get_img(url){
+        get_n_img(url){
           this.get_n_Img(url);
-          this.get_k_Img(url);
         },
-
+        get_k_img(url){
+          this.get_k_Img(url);
+        }
     },
     
 
@@ -72,26 +71,25 @@ export default {
         con3:state=>state.work_modules.con3,
         con4:state=>state.work_modules.con4
         }),
-        ...mapGetters(['delReset']),
-        ...mapState({client:state=>state.card.client})
+        ...mapState({client:state=>state.card.client}),
+        ...mapState({new_swiperSlides:state=>state.card.new_swiperSlides})
     },
 
     components:{
         "Line_1":Line_1,
-        "sm_carousel":resolve=>setTimeout((require(['@/components/indexComponents/sm_carousel.vue'],resolve)),0),
-        "card":card,
+        // "sm_carousel":resolve=>setTimeout((require(['@/components/indexComponents/sm_carousel.vue'],resolve)),0),
+       "sm_carousel":sm_carousel,
+       "card":card,
         "card2":card2,
         "news":news
 
     },
-    beforeCreate(){
-        // 发送请求每一组样片的第一张
-    },
     created(){
-        this.reset_card()
+        // this.reset_card()
         },
     mounted(){
-      this.get_img("/home");
+        this.client==""?this.get_k_img("/home"):console.log(this.client);
+        this.new_swiperSlides==""?this.get_n_img("/home"):console.log(this.new_swiperSlides);
         
     }
   

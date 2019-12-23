@@ -6,7 +6,6 @@
      :key="index" 
      :data-index="index"      
      class="card2 pos_rel" 
-     v-if="index<=5" 
     @mouseenter="handleIn($event)"
     @mouseleave="handleOut($event)"
      >

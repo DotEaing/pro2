@@ -30,13 +30,25 @@
 </template>
 
 <script>
+// import {mapState,mapActions,mapGetters,mapMutations} from "vuex"
 export default {
-    props:["con"],
+  props:["con"],
     data(){
         return{
         }
     },
+    //  methods:{
+    //     ...mapActions(["get_k_Img"]),
+    //     get_img(url){ this.get_k_Img(url);},
+    // },
+    // computed:{
+    //     ...mapState({client:state=>state.card.client})
 
+    // },
+    //   mounted(){
+    //    this.client==""?this.get_img("/home"):console.log(this.client);
+
+    // }
 }
 </script>
 

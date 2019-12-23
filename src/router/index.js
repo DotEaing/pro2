@@ -15,6 +15,7 @@ const retrievePwd2  = ()=>import( "@/components/login/retrievePwd2.vue")
 const newPages  = ()=>import( "@/components/sonPages/newPages.vue")
 const activeityPages  = ()=>import( "@/components/sonPages/activeityPages.vue")
 const clientPages  = ()=>import( "@/components/sonPages/clientPages.vue")
+const originalPages  = ()=>import( "@/components/sonPages/originalPages.vue")
 // oroginal
 
 
@@ -25,7 +26,10 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: Home
+    component: Home,
+    // meta:{
+    //   keepAlive:true
+    // }
   },
   // login
   {
@@ -68,6 +72,11 @@ const routes = [
     path: '/clientPages',
     name: 'clientPages',
     component: clientPages
+  },
+  {
+    path: '/originalPages',
+    name: 'originalPages',
+    component: originalPages
   },
 
 
