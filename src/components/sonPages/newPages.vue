@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { mapState,mapActions} from "vuex"
+import {mapState,mapActions,mapGetters,mapMutations} from "vuex"
 import card3 from "@/components/indexComponents/card3.vue"
 export default {
 data() {
@@ -24,26 +24,20 @@ data() {
   }
 },
 
-//  methods:{
-//       ...mapActions(["get_n_Img"]),
-        
-//         get_img(url){
-//           this.get_n_Img(url);
-//         },
-//     },
+ methods:{
+      ...mapActions(["get_n_Img"]),
+        get_n_img(url){
+          this.get_n_Img(url);
+        },
+    },
 
-  computed:{...mapState({
-          new_swiperSlides:state=>state.card.new_swiperSlides
-          })},
+  computed:{...mapState({new_swiperSlides:state=>state.card.new_swiperSlides})},
 
-  // created(){
-  //     // 发送请求每一组样片的第一张
-  //     this.get_img("/home")
-  // },
+  components:{card3},
 
-components:{
-        card3,
-    }
+  mounted(){
+     this.new_swiperSlides==""?this.get_n_img("/home"):console.log(this.new_swiperSlides);
+  }
 }
 </script>
 

@@ -2,7 +2,7 @@
   <div>
     <div>
     <ul class="mid cl ">
-     <li v-for="(items,index) of item" 
+     <li v-for="(items,index) of original_face" 
      :key="index" 
      :data-index="index"      
      class="card2 pos_rel" 
@@ -145,7 +145,7 @@ export default {
     ...mapState({
       icon1:state=>state.card.icon1,
       icon2:state=>state.card.icon2,
-      item:state=>state.card.original,
+      original_face:state=>state.card.original_face,
       bg:state=>state.card.bg,
   })}
 }

@@ -1,8 +1,11 @@
 <template>
   <div id="app">
+    <div class="ttt">
+
     <Nav></Nav>
     <router-view/>
     <Footer></Footer>
+    </div>
   </div>
 </template>
 <script>
@@ -17,6 +20,9 @@ export default {
 }
 </script>
 <style>
-
+.ttt{
+  
+  background: #001a26;
+}
 
 </style>

@@ -10,7 +10,7 @@ const state= {
   client:[ ],
 
 // card2
-original:[
+original_face:[
   {name:"汉唐风",src:require("@/assets/img/common/card2/ht.jpg"),link:"#",src2:require("@/assets/img/common/card2/ht_txt.png")},
   {name:"江南风",src:require("@/assets/img/common/card2/jn.jpg"),link:"#",src2:require("@/assets/img/common/card2/jn_txt.png")},
   {name:"仙侠风",src:require("@/assets/img/common/card2/xx.jpg"),link:"#",src2:require("@/assets/img/common/card2/xx_txt.png")},
@@ -28,7 +28,16 @@ original:[
   },
 
   // card3
-  new_swiperSlides: [ ]
+  new_swiperSlides: [ ],
+
+
+  //  original
+  og_common:[],
+
+  original:[],
+
+  // single
+  single:[]
  
 };
 const getters={
@@ -42,6 +51,8 @@ const mutations= {
 };
 const actions={
 
+// =====================================
+// 客片首张
 async get_k_Img(context,url){
   console.log(url)
   var a = await new Promise((resolve,reject)=>{
@@ -62,6 +73,30 @@ async get_k_Img(context,url){
   }) 
 },
 
+// 客片单组
+async get_single_k_Img(context,obj){
+  console.log(obj)
+  var a = await new Promise((resolve,reject)=>{
+    // 获取图片地址
+    form.allImg(obj.url,obj.name,context.state.img_folder.k_img,res=>{
+       resolve(res.data)
+    })
+  })
+   await new Promise ((resolve)=>{ 
+    // 遍历数据中需要的数据
+    for (const t of a) {
+      // 构建对象
+        var obj ={name:t.name,src:require(`../../../../serve/${t.src}`),link:`${t.link}`}
+      // 拼接到item末尾
+      context.state.single.push(obj)
+
+    }
+  }) 
+},
+
+// ==============================================================
+
+// 新片
 async get_n_Img(context,url){
   console.log(url)
   var a = await new Promise((resolve,reject)=>{
@@ -79,8 +114,31 @@ async get_n_Img(context,url){
       context.state.new_swiperSlides.push(obj)
     }
   }) 
-}
+},
 
+// ==============================================================
+// 样片
+async get_y_Img(context,url){
+  console.log(url)
+  var a = await new Promise((resolve,reject)=>{
+    // 获取图片地址
+    form.img(url,context.state.img_folder.y_img,res=>{
+       resolve(res.data)
+    })
+  })
+   await new Promise ((resolve)=>{ 
+    // 遍历数据中需要的数据
+    for (const t of a) {
+      // 构建对象
+        var obj ={name:t.name,src:require(`../../../../serve/${t.src}`),link:`${t.link}`}
+      // 拼接到item末尾
+      context.state.original.push(obj)
+
+    }
+  }) 
+},
+
+// ==========================================================
 
 
 

@@ -41,11 +41,24 @@ server.use( bodyParser.urlencoded({
 
 /** 路由 */
 
-// 图片
-server.get('/home'||'/newPages',(req,res)=>{
+// 获取首张图片
+server.get('/home',(req,res)=>{
   // var sql="select class,k_id from panxz_k_img  where "
   var a=req.query.img_folder;
   var sql =`select * from ( select * from ${a} group by class) as base` //group by默认取分组第一条
+  console.log(sql);
+  pool.query(sql,(err,result)=>{
+    if(err) throw err;
+    res.send(result)
+  })
+})
+
+// 获取单组图片
+server.get('/singlePages',(req,res)=>{
+  // var sql="select class,k_id from panxz_k_img  where "
+  var a=req.query.img_folder;
+  var b=req.query.name;
+  var sql =`select * from ${a} where name="${b}"` //单组，全部
   console.log(sql);
   pool.query(sql,(err,result)=>{
     if(err) throw err;

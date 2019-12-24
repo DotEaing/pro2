@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="originalPages">
+    <div class="originalPages" >
       <!-- 大图 -->
       <div class="originalPages_header wp" >
           <div>
@@ -35,7 +35,7 @@
 
           <div class="workplase mid cl">
             <!-- og_con是指vuex表单中的导入的原创风格表单 -->
-            <!-- <card :con=""></card>   -->
+             <card :con="original" ></card>   
           </div>
         </div>
       </div>
@@ -43,13 +43,34 @@
 </template>
 
 <script>
+import {mapState,mapActions,mapGetters,mapMutations} from "vuex"
+import card from "@/components/indexComponents/card.vue"
 export default {
-    data(){
-      return{
-
+data(){
+  return{
+  
+  }
+},
+  methods:{
+      ...mapActions(["get_k_Img","get_y_Img"]),
+      get_y_k_img(url){
+        this.get_k_Img(url);
+        this.get_y_Img(url);
       }
-    }
-}
+  },
+
+computed:{...mapState({
+          original:state=>state.card.original
+          })},
+
+components:{
+        card,
+    },
+    
+    mounted(){
+    this.original==""?this.get_y_k_img("/home"):console.log(this.original);
+  }
+  }
 </script>
 
 <style scoped>

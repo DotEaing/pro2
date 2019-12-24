@@ -8,6 +8,8 @@ import nav from "./modules/nav"
 import login from "./modules/login"
 import news from "./modules/news"
 import activeity from "./modules/activeity"
+import original from "./modules/original"
+
 
 Vue.use(Vuex)
 
@@ -20,7 +22,8 @@ const store=new Vuex.Store({
         news,
         nav,
         login,
-        activeity 
+        activeity,
+        original 
       }
 })
 

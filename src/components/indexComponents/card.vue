@@ -1,7 +1,7 @@
 <template>
   <div>
    
-      <div class="card" v-for="(itmes,index) of con" :key="index">
+      <div class="card" v-for="(itmes,index) of con" :key="index" >
        
         <router-link :to="itmes.link">
           <span>
@@ -35,8 +35,10 @@ export default {
   props:["con"],
     data(){
         return{
+          oo:"2"
         }
     },
+   
     //  methods:{
     //     ...mapActions(["get_k_Img"]),
     //     get_img(url){ this.get_k_Img(url);},
@@ -45,7 +47,7 @@ export default {
     //     ...mapState({client:state=>state.card.client})
 
     // },
-    //   mounted(){
+      // mounted(){ 
     //    this.client==""?this.get_img("/home"):console.log(this.client);
 
     // }

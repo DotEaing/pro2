@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { mapState} from "vuex"
+import {mapState,mapActions,mapGetters,mapMutations} from "vuex"
 import card from "@/components/indexComponents/card.vue"
 export default {
 data(){
@@ -23,19 +23,23 @@ data(){
 
   }
 },
- computed:{...mapState({
-          client:state=>state.card.client
-          })},
 
-components:{
-        card,
+  methods:{
+        ...mapActions(["get_k_Img","get_y_Img"]),
+        get_y_k_img(url){
+          this.get_k_Img(url);
+          this.get_y_Img(url);
+        }
     },
-     mounted(){
-    
-        console.log('====================================');
-        console.log(this.client);
-        console.log('====================================');
-    }
+
+  computed:{...mapState({client:state=>state.card.client})},
+
+  components:{card},
+
+  mounted(){
+    this.client==""?this.get_y_k_img("/home"):console.log(this.client);
+  }
+
 }
 </script>
 

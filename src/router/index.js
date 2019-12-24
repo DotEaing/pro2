@@ -16,6 +16,7 @@ const newPages  = ()=>import( "@/components/sonPages/newPages.vue")
 const activeityPages  = ()=>import( "@/components/sonPages/activeityPages.vue")
 const clientPages  = ()=>import( "@/components/sonPages/clientPages.vue")
 const originalPages  = ()=>import( "@/components/sonPages/originalPages.vue")
+const singlePages  = ()=>import( "@/components/sonPages/singlePages.vue")
 // oroginal
 
 
@@ -78,7 +79,11 @@ const routes = [
     name: 'originalPages',
     component: originalPages
   },
-
+  {
+    path: '/singlePages',
+    name: 'singlePages',
+    component: singlePages
+  },
 
 ]
 

@@ -12,10 +12,15 @@ var form={
         .then(callback)
     },
 
-    // 获取图片地址
+    // 获取每组首张图片地址
     
     img(url,img_folder,callback){
-        axios.get(url,{params:{img_folder}}) //之后改为post
+        axios.get(url,{params:{img_folder}}) 
+        .then(callback)
+    },
+    // 获取单组图片
+    allImg(url,name,img_folder,callback){
+        axios.get(url,{params:{img_folder,name}}) 
         .then(callback)
     },
     
