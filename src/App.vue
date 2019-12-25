@@ -21,7 +21,6 @@ export default {
 </script>
 <style>
 .ttt{
-  
   background: #001a26;
 }
 

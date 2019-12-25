@@ -2,8 +2,8 @@
 <div>
     <div class="mid">
 
-        <swiper :options="swiperOption">
-            <swiper-slide  v-for="(slides,index) of con" :key="index" > 
+        <swiper :options="swiperOption" v-if="con.length>=1">
+            <swiper-slide  v-for="(slides,index) of con" :key="index"  > 
                 <div class="card">
 
                     <router-link :to="slides.link" >

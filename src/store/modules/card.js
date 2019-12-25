@@ -42,13 +42,17 @@ original_face:[
 };
 const getters={
 }
+
 const mutations= {
   reset_card(state){
     state.client=[];
     state.new_swiperSlides=[];
     // state.original=[]
+    state.single=[]
   },
 };
+
+
 const actions={
 
 // =====================================
@@ -65,7 +69,8 @@ async get_k_Img(context,url){
     // 遍历数据中需要的数据
     for (const t of a) {
       // 构建对象
-        var obj ={name:t.name,src:require(`../../../../serve/${t.src}`),link:`${t.link}`}
+        var obj ={name:t.name,src:require(`../../../../serve/${t.src}`),link:`/singlePages/k/${t.name}`}
+      
       // 拼接到item末尾
       context.state.client.push(obj)
 
@@ -79,7 +84,7 @@ async get_single_k_Img(context,obj){
   var a = await new Promise((resolve,reject)=>{
     // 获取图片地址
     form.allImg(obj.url,obj.name,context.state.img_folder.k_img,res=>{
-       resolve(res.data)
+      resolve(res.data)
     })
   })
    await new Promise ((resolve)=>{ 
@@ -94,9 +99,9 @@ async get_single_k_Img(context,obj){
   }) 
 },
 
-// ==============================================================
 
-// 新片
+// ==============================================================
+// 新片首张
 async get_n_Img(context,url){
   console.log(url)
   var a = await new Promise((resolve,reject)=>{
@@ -109,15 +114,37 @@ async get_n_Img(context,url){
     // 遍历数据中需要的数据
     for (const t of a) {
       // 构建对象
-        var obj ={name:t.name,src:require(`../../../../serve/${t.src}`),link:`${t.link}`}
+      var obj ={name:t.name,src:require(`../../../../serve/${t.src}`),link:`/singlePages/n/${t.name}`}
       // 拼接到item末尾
       context.state.new_swiperSlides.push(obj)
     }
   }) 
 },
 
+// 新片单组
+async get_single_n_Img(context,obj){
+  console.log(obj)
+  var a = await new Promise((resolve,reject)=>{
+    // 获取图片地址
+    form.allImg(obj.url,obj.name,context.state.img_folder.n_img,res=>{
+      resolve(res.data)
+    })
+  })
+   await new Promise ((resolve)=>{ 
+    // 遍历数据中需要的数据
+    for (const t of a) {
+      // 构建对象
+        var obj ={name:t.name,src:require(`../../../../serve/${t.src}`),link:`${t.link}`}
+      // 拼接到item末尾
+      context.state.single.push(obj)
+
+    }
+  }) 
+},
+
+
 // ==============================================================
-// 样片
+// 样片首张
 async get_y_Img(context,url){
   console.log(url)
   var a = await new Promise((resolve,reject)=>{
@@ -130,17 +157,35 @@ async get_y_Img(context,url){
     // 遍历数据中需要的数据
     for (const t of a) {
       // 构建对象
-        var obj ={name:t.name,src:require(`../../../../serve/${t.src}`),link:`${t.link}`}
+      var obj ={name:t.name,src:require(`../../../../serve/${t.src}`),link:`/singlePages/y/${t.name}`}
       // 拼接到item末尾
       context.state.original.push(obj)
 
     }
   }) 
 },
+// 样片单组
+async get_single_y_Img(context,obj){
+  console.log(obj)
+  var a = await new Promise((resolve,reject)=>{
+    // 获取图片地址
+    form.allImg(obj.url,obj.name,context.state.img_folder.y_img,res=>{
+      resolve(res.data)
+    })
+  })
+   await new Promise ((resolve)=>{ 
+    // 遍历数据中需要的数据
+    for (const t of a) {
+      // 构建对象
+        var obj ={name:t.name,src:require(`../../../../serve/${t.src}`),link:`${t.link}`}
+      // 拼接到item末尾
+      context.state.single.push(obj)
+
+    }
+  }) 
+},
 
 // ==========================================================
-
-
 
 };
 

@@ -15,7 +15,7 @@ axios.defaults.withCredentials=true
 Vue.use(VueAwesomeSwiper)
 Vue.prototype.axios=axios;
 Vue.config.productionTip = false
-
+//Vue.prototype.baseURL=
 
 new Vue({
   router,

@@ -10,16 +10,23 @@
     <div class="pub"> </div>
       <ul>
         <li>
-        <span><img src="@/assets/img/k_img/07/(2).jpg" alt="5"></span>
+        <span><img :src="head_img" alt="5" id="imgWay" ref="imgWay" ></span>
         <div class="box2">
          
             <!-- <i class="img_list"  v-for="(itmes,index) of single " :key="index">
               <img :src="itmes.src" alt="" srcset="">
             </i> -->
 
-              <swiper :options="swiperOption">
-                  <swiper-slide v-for="(itmes, index) in single" :key="index" class="img_list"> 
+              <swiper :options="swiperOption" ref="mySwiper" v-if="single.length>=1"> <!-- 先加载数据否则swiper循环轮播失效 -->
+                  <swiper-slide 
+                  v-for="(itmes, index) of single" 
+                  :key="index" 
+                  class="img_list" 
+                  :data-index="index" 
+                 >
+                  <div>
                       <img :src="itmes.src" alt="" srcset="" >
+                  </div> 
                   </swiper-slide>
                   <div class="swiper-button-prev" slot="button-prev"></div>
                   <div class="swiper-button-next" slot="button-next"></div>
@@ -47,9 +54,11 @@
 <script>
 import {mapState,mapActions,mapGetters,mapMutations} from "vuex"
 export default {
+  props:["name","head_img"],
   data(){
     return{
-      name:"寄我此生",
+      // name:"<新品第四季>02",
+      // head_img:"n",
       bg:{
         backgroundImage:"url("+require("@/assets/img/common/sonPages/kp_gg.png"),
         backgroundRepeat: "no-repeat",
@@ -57,13 +66,13 @@ export default {
       },
 
         swiperOption: {
-            autoplay:{
-              delay:4000
-            },
+            // autoplay:{
+            //   delay:100
+            // },
             loop:true,
-            slidesPerView :10,
-            centeredSlides : false,
-            spaceBetween : 50,
+            slidesPerView :7,
+            centeredSlides : true,
+            spaceBetween : 30,
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev'
@@ -72,22 +81,80 @@ export default {
                     loadPrevNext: true,
                     loadOnTransitionStart: true,
                 },
-      }
-    }
-  },
+            on:{
+                click: function fun(e){
+                    var x=document.getElementById("imgWay");
+                    // x.src=e.target.src;
+                    x.setAttribute("src",e.target.src);
+                }
+              }
+          }
+        }
+      },
+
 
     methods:{
-      ...mapActions(["get_single_k_Img"]),
-      get_single_Imgs(url,name){
-        var obj={url,name}           
-        this.get_single_k_Img(obj);  //这里只能传一个值！！！
-      }
+      ...mapMutations(['reset_card']),
+      ...mapActions(["get_single_k_Img","get_single_y_Img","get_single_n_Img",]),
+      
+      rester(){
+        this.reset_card()
+      },
+
+      get_single_Imgs(url,name,head_img){
+        if ( head_img=="y") {
+        console.log(1)
+        //  样片获取
+          var obj={url,name}           
+          this.get_single_y_Img(obj);  //这里只能传一个值！！！ 
+          
+        } else if(head_img=="n"){
+          console.log(2)
+        // 新片获取
+          var obj={url,name}           
+          this.get_single_n_Img(obj);  //这里只能传一个值！！！  
+          
+        }else if(head_img=="k"){
+          console.log(3)
+          // 客片获取
+          var obj={url,name}           
+          this.get_single_k_Img(obj);  //这里只能传一个值！！！  
+
+        }
+
+      },
+      // 获得图片地址
     },
-     computed:{...mapState({single:state=>state.card.single})},
+
+     computed:{
+       ...mapState({single:state=>state.card.single})
+       
+       
+       },
+       
+      beforCrete(){
+        
+        },
      created(){
 
-       this.get_single_Imgs("/singlePages",this.name);
+       console.log('====================================');
+       console.log(this.single);
+       console.log('====================================');
+       console.log('====================================');
+       console.log(0,this.name,this.head_img);
+       console.log('====================================');
+        // this.rester()
 
+   },
+     mounted(){
+       
+       if (this.single==[]) {
+         this.get_single_Imgs("/singlePages",this.name,this.head_img)
+       }else {
+        this.rester();
+        this.get_single_Imgs("/singlePages",this.name,this.head_img)
+     
+       }
      }
 }
 </script>
@@ -139,11 +206,13 @@ export default {
     height: 120px;
     margin: 10px;
     padding: 10px;
-    
-   
+    /* white-space:nowrap;    文本不换行 */
+    /* overflow-x:auto;       在横向内容溢出元素框时，浏览器会显示滚动条以便查看其余的内容 */
+    /* overflow-y:hidden;     在纵向内容溢出元素框时，其余内容是不可见的 */
 }
 .singlePages .view-show .show01 li .box2 .img_list{
-width: auto;
+    width: auto;
+    margin-right: 20px
 }
 
 .singlePages .view-show .show01 li .box2 .img_list img{
