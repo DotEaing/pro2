@@ -5,18 +5,18 @@ import Home from '@/views/Home.vue'
 
 // 路由懒加载
 // login
-const login = ()=>import( "@/components/login/login.vue")
-const register  = ()=>import( "@/components/login/register.vue")
-const userInfor  = ()=>import( "@/components/login/userInfor.vue")
-const retrievePwd  = ()=>import( "@/components/login/retrievePwd.vue")
-const retrievePwd2  = ()=>import( "@/components/login/retrievePwd2.vue")
+const login = ()=>import( /*webpackChunkName:"login"*/ "@/components/login/login.vue")
+const register  = ()=>import( /*webpackChunkName:"register"*/ "@/components/login/register.vue")
+const userInfor  = ()=>import( /*webpackChunkName:"userInfor"*/ "@/components/login/userInfor.vue")
+const retrievePwd  = ()=>import( /*webpackChunkName:"retrievePwd"*/ "@/components/login/retrievePwd.vue")
+const retrievePwd2  = ()=>import( /*webpackChunkName:"retrievePwd2"*/ "@/components/login/retrievePwd2.vue")
 
 // son
-const newPages  = ()=>import( "@/components/sonPages/newPages.vue")
-const activeityPages  = ()=>import( "@/components/sonPages/activeityPages.vue")
-const clientPages  = ()=>import( "@/components/sonPages/clientPages.vue")
-const originalPages  = ()=>import( "@/components/sonPages/originalPages.vue")
-const singlePages  = ()=>import( "@/components/sonPages/singlePages.vue")
+const newPages  = ()=>import( /*webpackChunkName:"newPages"*/ "@/components/sonPages/newPages.vue")
+const activeityPages  = ()=>import( /*webpackChunkName:"activeityPages"*/ "@/components/sonPages/activeityPages.vue")
+const clientPages  = ()=>import( /*webpackChunkName:"clientPages"*/ "@/components/sonPages/clientPages.vue")
+const originalPages  = ()=>import( /*webpackChunkName:"originalPages"*/  "@/components/sonPages/originalPages.vue")
+const singlePages  = ()=>import( /*webpackChunkName:"singlePages"*/  "@/components/sonPages/singlePages.vue")
 
 
 

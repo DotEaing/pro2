@@ -34,14 +34,24 @@
                           </li>
                       </ul>
                   </div>
-                <!-- login -->
+                <!-- unlogin -->
                   <div class="login">
-                      <ul>
+                      <ul v-if="loginShow == null">
                         <li><router-link :to="login"><em class="fa fa-user-circle-o" aria-hidden="true"></em> 登录</router-link></li>
                         <li>|</li>
                         <li><router-link :to="register"><em class="fa fa-file-text-o" aria-hidden="true"></em> 注册</router-link></li>
                       </ul>
+                  
+
+                  <!-- login -->
+                  
+                      <ul v-else-if="loginShow != null">
+                        <li>你好！&nbsp;{{nameData}}</li>
+                        <li>|</li>
+                        <li><i @click="close">退出</i></li>
+                      </ul>
                   </div>
+                
               </div>
           </div>
       </div>
@@ -54,6 +64,8 @@ export default {
         return {
             l:"",
             t:"",
+            loginShow:sessionStorage.getItem("panxz_user_pc_uid"),
+            nameData:sessionStorage.getItem("panxz_user_pc_uname"),
             hoverIndex:-1,
             hoverIndex2:-1, 
             login:{path:"/login",},
@@ -61,7 +73,12 @@ export default {
 
         }
     },
+    watch:{
+       
+    },
+
          methods:{
+            //  下拉列表
              show(index){
                      this.t=index;
                      this.hoverIndex=index;
@@ -78,7 +95,14 @@ export default {
             disappear2(){
                 this.l=-1;
                 this.hoverIndex2=-1
-            }
+            },
+        //    退出登录
+        close(){
+            sessionStorage.removeItem('panxz_user_pc_uid');
+            sessionStorage.removeItem('panxz_user_pc_uname');
+            window.history.go(0)
+        }
+
          },
          computed:({
         ...mapState({
@@ -86,7 +110,14 @@ export default {
             s_title:state=>state.nav.nav
         }),
         ...mapMutations(["reset_card"])
-    })
+    }),
+    created(){
+        console.log('====================================1111');
+        console.log(this.loginShow);
+        console.log('====================================');
+    }
+
+      
 
 }
 </script>
@@ -179,6 +210,18 @@ background-color: #000
     background: #001a26
 }
 
+/* unlogin */
+.login li i{
+    color:inherit;
+    /* border: #dfcca1 solid 1px ; */
+    font-size: 15px;
+    padding: 3px 10px;
+    cursor: pointer;
+}
+
+.login li i:hover{
+    background: #001a26
+}
 
 /* 变化颜色 */
 .main-nav .hoverBg{

@@ -17,14 +17,14 @@
               <img :src="itmes.src" alt="" srcset="">
             </i> -->
 
-              <swiper :options="swiperOption" ref="mySwiper" v-if="single.length>=1"> <!-- 先加载数据否则swiper循环轮播失效 -->
+              <swiper :options="swiperOption" ref="mySwiper" v-if="single.length>=3"> <!-- 先加载数据否则swiper循环轮播失效 -->
                   <swiper-slide 
                   v-for="(itmes, index) of single" 
                   :key="index" 
                   class="img_list" 
                   :data-index="index" 
                  >
-                  <div>
+                  <div v-show="single.length>=6">
                       <img :src="itmes.src" alt="" srcset="" >
                   </div> 
                   </swiper-slide>
@@ -59,6 +59,7 @@ export default {
     return{
       // name:"<新品第四季>02",
       // head_img:"n",
+   
       bg:{
         backgroundImage:"url("+require("@/assets/img/common/sonPages/kp_gg.png"),
         backgroundRepeat: "no-repeat",
@@ -70,7 +71,7 @@ export default {
             //   delay:100
             // },
             loop:true,
-            slidesPerView :7,
+            slidesPerView :8,
             centeredSlides : true,
             spaceBetween : 30,
             navigation: {
@@ -94,8 +95,8 @@ export default {
 
 
     methods:{
-      ...mapMutations(['reset_card']),
-      ...mapActions(["get_single_k_Img","get_single_y_Img","get_single_n_Img",]),
+      ...mapMutations(['reset_card',"sil_toObj"]),
+      ...mapActions(["get_single_k_Img","get_single_y_Img","get_single_n_Img"]),
       
       rester(){
         this.reset_card()
@@ -123,12 +124,14 @@ export default {
         }
 
       },
+          sil_toObjs(){
+            this.sil_toObj()
+          }
       // 获得图片地址
     },
 
      computed:{
        ...mapState({single:state=>state.card.single})
-       
        
        },
        
@@ -136,25 +139,18 @@ export default {
         
         },
      created(){
-
        console.log('====================================');
-       console.log(this.single);
-       console.log('====================================');
-       console.log('====================================');
-       console.log(0,this.name,this.head_img);
+       console.log(0,this.name,this.head_img,this.single);
        console.log('====================================');
         // this.rester()
-
-   },
-     mounted(){
-       
        if (this.single==[]) {
          this.get_single_Imgs("/singlePages",this.name,this.head_img)
        }else {
-        this.rester();
+         this.rester();
         this.get_single_Imgs("/singlePages",this.name,this.head_img)
-     
        }
+   },
+     mounted(){
      }
 }
 </script>
@@ -212,7 +208,7 @@ export default {
 }
 .singlePages .view-show .show01 li .box2 .img_list{
     width: auto;
-    margin-right: 20px
+    
 }
 
 .singlePages .view-show .show01 li .box2 .img_list img{

@@ -50,6 +50,12 @@ const mutations= {
     // state.original=[]
     state.single=[]
   },
+  
+  sil_toObj(state){
+  
+    state.single=JSON.parse(JSON.stringify(state.single)) 
+  }
+
 };
 
 
@@ -73,7 +79,7 @@ async get_k_Img(context,url){
       
       // 拼接到item末尾
       context.state.client.push(obj)
-
+      
     }
   }) 
 },
@@ -92,9 +98,8 @@ async get_single_k_Img(context,obj){
     for (const t of a) {
       // 构建对象
         var obj ={name:t.name,src:require(`../../../../serve/${t.src}`),link:`${t.link}`}
-      // 拼接到item末尾
+        // 拼接到item末尾
       context.state.single.push(obj)
-
     }
   }) 
 },

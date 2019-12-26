@@ -106,9 +106,15 @@ async bt_login(context){
       // 外联js文件axios实现连接
       form.login_get("login",context.state.form,res=>{
         resolve(res.data);
+        var obj=res.data.result[0];
+        sessionStorage.setItem("panxz_user_pc_uid",obj.uid)
+        sessionStorage.setItem("panxz_user_pc_uname",obj.uname)
       })
     })
-    await console.log(c)
+    await new Promise((resolve)=>{
+      console.log(c)
+      window.open("/", "_self")
+    })
   }catch(e){
     if (e.message=="phone") {
       alert("请输入正确手机号11位");
@@ -193,34 +199,33 @@ async bt_login(context){
     var g=await new Promise((resolve)=>{
       console.log("成功")
       console.log(context.state.form)
-      
       // 外联js文件axios实现注册
       form.login_get("userInfor",context.state.form,res=>{
         resolve(res.data);
       })
     })
-    await console.log(g)
+    await alert("注册成功，请登录！"),window.open("/login","_self")
   }catch(e){
     switch (e.message) {
       case "uname":
         alert("请输入正确的昵称");
-        history.go(-1)
+       
           break;
       case "gender":
         alert("请填入性别");
-        history.go(-1)
+        
           break;
       case "upwd":
         alert("请输入正确的密码");
-        history.go(-1)
+        
           break;
       case "email":
         alert("请输入正确邮箱");
-        history.go(-1)
+       
           break;
       case "check_upwd":
         alert("请输入正确的密码");
-        history.go(-1)
+       
           break;
       } 
     }
@@ -292,7 +297,8 @@ async bt_login(context){
         form.login_get("/retrievePwd2",context.state.form,res=>{
           console.log(res.data)
           if (res.data.code==1) {
-            alert("修改成功")
+            alert("修改成功,请重新登录！")
+            window.open("/login","_self")
           }  
         })
       })
