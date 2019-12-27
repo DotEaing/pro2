@@ -146,12 +146,15 @@ export default {
        if (this.single==[]) {
          this.get_single_Imgs("/singlePages",this.name,this.head_img)
        }else {
-         this.rester();
+        this.rester();
         this.get_single_Imgs("/singlePages",this.name,this.head_img)
        }
    },
      mounted(){
-     }
+     
+     },
+
+
 }
 </script>
 

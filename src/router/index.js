@@ -74,7 +74,7 @@ const routes = [
     component: clientPages
   },
   {
-    path: '/originalPages',
+    path: '/originalPages/:head_img/:name',props:true,
     name: 'originalPages',
     component: originalPages
   },

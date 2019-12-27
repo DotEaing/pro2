@@ -3,11 +3,12 @@ const state= {
   img_folder:{
     k_img:"panxz_k_img",
     y_img:"panxz_y_img",
-    n_img:"panxz_n_img"
+    n_img:"panxz_n_img",
+    o_img:"panxz_o_img",
   },
   
   // card
-  client:[ ],
+  client:[],
 
 // card2
 original_face:[
@@ -28,11 +29,11 @@ original_face:[
   },
 
   // card3
-  new_swiperSlides: [ ],
+  new_swiperSlides: [],
 
 
   //  original
-  og_common:[],
+ ogCommon :[],
 
   original:[],
 
@@ -49,6 +50,7 @@ const mutations= {
     state.new_swiperSlides=[];
     // state.original=[]
     state.single=[]
+   ogCommon =''
   },
   
   sil_toObj(state){
@@ -149,6 +151,33 @@ async get_single_n_Img(context,obj){
 
 
 // ==============================================================
+// 原创片标题
+async get_o_head_Img(context,obj){
+  var a= await new Promise((resolve)=>{
+    console.log(obj);
+    form.allImg(obj.url,obj.name,context.state.img_folder.o_img,res=>{
+      resolve(res.data)
+    })
+  }) 
+  var b=await new Promise ((resolve)=>{ 
+    // // 遍历数据中需要的数据
+    console.log(a)
+    for (const t of a) {
+      // 构建对象
+      console.log(t)
+
+        var obj ={name:t.name,headSrc:require(`../../../../serve/${t.head_src}`),logoSrc:require(`../../../../serve/${t.logo_src}`),link:`${t.link}`}
+      // 拼接到item末尾
+      context.state.ogCommon.push(obj)
+      resolve(context.state.ogCommon)
+    }
+  })
+    // context.state.ogCommon=a
+    // console.log(a)
+},
+
+// =================================================================
+
 // 样片首张
 async get_y_Img(context,url){
   console.log(url)
@@ -169,6 +198,7 @@ async get_y_Img(context,url){
     }
   }) 
 },
+
 // 样片单组
 async get_single_y_Img(context,obj){
   console.log(obj)

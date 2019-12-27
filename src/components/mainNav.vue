@@ -14,7 +14,7 @@
                            :class="{'hoverBg':index == hoverIndex}"  
                            @mouseenter="show(index);"
                            @mouseleave=" disappear()">
-                           <router-link :to="name.link" @click="reset_card()">
+                           <router-link :to="name.link" >
                                {{name.title}}
                            </router-link>
                             <transition name="s_title">
