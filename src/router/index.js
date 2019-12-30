@@ -24,7 +24,7 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/home',
     name: 'home',
     component: Home,
     // meta:{
@@ -78,10 +78,22 @@ const routes = [
     name: 'originalPages',
     component: originalPages
   },
+
   {
     path: '/singlePages/:head_img/:name',props:true ,
     name: 'singlePages',
-    component: singlePages
+    component: singlePages,
+    beforeEnter: (to, from, next) => {
+      if (!sessionStorage.getItem("panxz_user_pc_uid")) {
+          alert("未登录,请先登录！")
+          next({
+              path: '/login'
+          })
+      } else {
+          next()
+      }
+  }
+
   },
 
 ]

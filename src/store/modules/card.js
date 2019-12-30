@@ -12,12 +12,12 @@ const state= {
 
 // card2
 original_face:[
-  {name:"汉唐风",src:require("@/assets/img/common/card2/ht.jpg"),link:"#",src2:require("@/assets/img/common/card2/ht_txt.png")},
-  {name:"江南风",src:require("@/assets/img/common/card2/jn.jpg"),link:"#",src2:require("@/assets/img/common/card2/jn_txt.png")},
-  {name:"仙侠风",src:require("@/assets/img/common/card2/xx.jpg"),link:"#",src2:require("@/assets/img/common/card2/xx_txt.png")},
-  {name:"戏曲风",src:require("@/assets/img/common/card2/xq.jpg"),link:"#",src2:require("@/assets/img/common/card2/xq_txt.png")},
-  {name:"影视风",src:require("@/assets/img/common/card2/ys.jpg"),link:"#",src2:require("@/assets/img/common/card2/ys_txt.png")},
-  {name:"中国风",src:require("@/assets/img/common/card2/zg.jpg"),link:"#",src2:require("@/assets/img/common/card2/zg_txt.png")}
+  {name:"汉唐风",src:require("@/assets/img/common/card2/ht.jpg"),link:"/originalPages/panxz_o_img/ht",src2:require("@/assets/img/common/card2/ht_txt.png")},
+  {name:"江南风",src:require("@/assets/img/common/card2/jn.jpg"),link:"/originalPages/panxz_o_img/jn",src2:require("@/assets/img/common/card2/jn_txt.png")},
+  {name:"仙侠风",src:require("@/assets/img/common/card2/xx.jpg"),link:"/originalPages/panxz_o_img/xx",src2:require("@/assets/img/common/card2/xx_txt.png")},
+  {name:"戏曲风",src:require("@/assets/img/common/card2/xq.jpg"),link:"/originalPages/panxz_o_img/xq",src2:require("@/assets/img/common/card2/xq_txt.png")},
+  {name:"影视风",src:require("@/assets/img/common/card2/ys.jpg"),link:"/originalPages/panxz_o_img/ys",src2:require("@/assets/img/common/card2/ys_txt.png")},
+  {name:"中国风",src:require("@/assets/img/common/card2/zg.jpg"),link:"/originalPages/panxz_o_img/zg",src2:require("@/assets/img/common/card2/zg_txt.png")}
   ],
   icon1:"url("+require("@/assets/img/common/card2/ico01.png")+")",
   icon2:"url("+require("@/assets/img/common/card2/ico02.png")+")",
@@ -29,11 +29,10 @@ original_face:[
   },
 
   // card3
-  new_swiperSlides: [],
-
+  new_swiperSlides:[],
 
   //  original
- ogCommon :[],
+  ogCommon:[],
 
   original:[],
 
@@ -50,7 +49,7 @@ const mutations= {
     state.new_swiperSlides=[];
     // state.original=[]
     state.single=[]
-   ogCommon =''
+    state.ogCommon=[]
   },
   
   sil_toObj(state){

@@ -14,7 +14,7 @@
                            :class="{'hoverBg':index == hoverIndex}"  
                            @mouseenter="show(index);"
                            @mouseleave=" disappear()">
-                           <router-link :to="name.link" >
+                           <router-link :to="name.link" active-class="active">
                                {{name.title}}
                            </router-link>
                             <transition name="s_title">
@@ -25,7 +25,7 @@
                                      @mouseenter="show2(indexs)"
                                      @mouseleave="disappear2()"
                                    >
-                                       <router-link :to="item.link">
+                                       <router-link :to="item.link" active-class="active">
                                            {{item.name}}
                                        </router-link>
                                    </li>
@@ -232,6 +232,10 @@ background-color: #000
 .main-nav .hoverBg2{
    background:  #001a26
    
+}
+
+.active{
+     background: #001a26
 }
 
 </style>

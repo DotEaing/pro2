@@ -113,7 +113,7 @@ async bt_login(context){
     })
     await new Promise((resolve)=>{
       console.log(c)
-      window.open("/", "_self")
+      window.open("/home", "_self")
     })
   }catch(e){
     if (e.message=="phone") {

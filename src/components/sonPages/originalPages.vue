@@ -83,7 +83,7 @@ watch:{
 
 computed:{...mapState({
           original:state=>state.card.original,
-         ogCommon:state=>state.card.ogCommon,
+          ogCommon:state=>state.card.ogCommon,
           })},
 
 components:{

@@ -24,7 +24,7 @@
                   class="img_list" 
                   :data-index="index" 
                  >
-                  <div v-show="single.length>=6">
+                  <div v-show="single.length>0">
                       <img :src="itmes.src" alt="" srcset="" >
                   </div> 
                   </swiper-slide>
@@ -67,13 +67,18 @@ export default {
       },
 
         swiperOption: {
-            // autoplay:{
-            //   delay:100
-            // },
+            speed:5000,//匀速时间
+            autoplay: {
+                delay: 0,
+                stopOnLastSlide: true,
+                disableOnInteraction: true,
+            },
             loop:true,
-            slidesPerView :8,
+            slidesPerView :5,
             centeredSlides : true,
             spaceBetween : 30,
+
+            
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev'

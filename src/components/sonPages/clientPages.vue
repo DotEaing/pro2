@@ -36,7 +36,7 @@ data(){
 
   components:{card},
 
-  mounted(){
+  created(){
     this.client==""?this.get_y_k_img("/home"):console.log(this.client);
   }
 
