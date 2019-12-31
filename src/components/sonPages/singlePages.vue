@@ -17,7 +17,7 @@
               <img :src="itmes.src" alt="" srcset="">
             </i> -->
 
-              <swiper :options="swiperOption" ref="mySwiper" v-if="single.length>=3"> <!-- 先加载数据否则swiper循环轮播失效 -->
+              <swiper :options="swiperOption" ref="mySwiper" v-if="single.length>=3" > <!-- 先加载数据否则swiper循环轮播失效 -->
                   <swiper-slide 
                   v-for="(itmes, index) of single" 
                   :key="index" 
@@ -47,14 +47,19 @@
       </div>
     </div>
     </div>
+    <floatcat></floatcat>
     </div>
 </div>
 </template>
 
 <script>
+import floatcat from "@/components/floatcat.vue"
 import {mapState,mapActions,mapGetters,mapMutations} from "vuex"
 export default {
   props:["name","head_img"],
+
+  components:{floatcat},
+
   data(){
     return{
       // name:"<新品第四季>02",
@@ -74,6 +79,7 @@ export default {
                 disableOnInteraction: true,
             },
             loop:true,
+            loopFillGroupWithBlank: true,
             slidesPerView :5,
             centeredSlides : true,
             spaceBetween : 30,
@@ -131,8 +137,8 @@ export default {
       },
           sil_toObjs(){
             this.sil_toObj()
-          }
-      // 获得图片地址
+          },
+         
     },
 
      computed:{
@@ -155,8 +161,9 @@ export default {
         this.get_single_Imgs("/singlePages",this.name,this.head_img)
        }
    },
+
      mounted(){
-     
+      
      },
 
 

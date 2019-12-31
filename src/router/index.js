@@ -27,6 +27,7 @@ const routes = [
     path: '/home',
     name: 'home',
     component: Home,
+    alias:"/"
     // meta:{
     //   keepAlive:true
     // }

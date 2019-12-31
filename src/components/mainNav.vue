@@ -34,6 +34,7 @@
                           </li>
                       </ul>
                   </div>
+                  
                 <!-- unlogin -->
                   <div class="login">
                       <ul v-if="loginShow == null">
@@ -98,10 +99,15 @@ export default {
             },
         //    退出登录
         close(){
-            sessionStorage.removeItem('panxz_user_pc_uid');
-            sessionStorage.removeItem('panxz_user_pc_uname');
-            window.history.go(0)
-        }
+            var r=confirm("确定退出？")
+            if (r==true) {
+                sessionStorage.removeItem('panxz_user_pc_uid');
+                sessionStorage.removeItem('panxz_user_pc_uname');
+                window.history.go(0)
+            } else {
+                console.log("什么也没做..")
+            }
+        },
 
          },
          computed:({

@@ -44,31 +44,38 @@
           </div>
         </div>
       </div>
+       <!-- <transition name="s_title"> -->
+          <floatcat v-if="show"></floatcat>
+       <!-- </transition> -->
   </div>
 </template>
 
 <script>
 import {mapState,mapActions,mapGetters,mapMutations} from "vuex"
 import card from "@/components/indexComponents/card.vue"
+import floatcat from "@/components/floatcat.vue"
 export default {
 props:["name","head_img"],
 data(){
   
   return{
-    t:""
+    t:"",
+    show:false
   }
 },
+
+
 watch:{
   name(){
     window.history.go(0)
   }
 },
   methods:{
-      ...mapMutations(['reset_card',"sil_toObj"]),
+    ...mapMutations(['reset_card',"sil_toObj"]),
       ...mapActions(["get_k_Img","get_y_Img","get_o_head_Img"]),
       
        rester(){
-        this.reset_card()
+         this.reset_card()
       },
       
       get_y_k_img(url){
@@ -78,25 +85,35 @@ watch:{
       get_o_Img(url,name,head_img){
           var obj={url,name}           
           this.get_o_head_Img(obj);  //这里只能传一个值！！！
-      }
+      },
+
+      handleScroll() {
+      // let scrolltop = e.target.scrollTop;
+      // ||document.documentElement.scrollTop ||document.body.scrollTop;
+      var scrollTop =window.pageYOffset 
+      scrollTop > 800 ? this.show = true : this.show = false;
+    },
   },
 
-computed:{...mapState({
-          original:state=>state.card.original,
-          ogCommon:state=>state.card.ogCommon,
-          })},
+computed:{
+  ...mapState({
+    original:state=>state.card.original,
+      ogCommon:state=>state.card.ogCommon,
+      }),
+    },
 
+            
 components:{
-        card,
+        card,floatcat
     },
     created(){
       
       this.original==""?this.get_y_k_img("/home"):console.log(this.original);
       
       if (this.ogCommon=="") {
-         this.get_o_Img("/originalPages",this.name,this.head_img)
+        this.get_o_Img("/originalPages",this.name,this.head_img)
        }else {
-        this.rester();
+         this.rester();
         this.get_o_Img("/originalPages",this.name,this.head_img)
        }
 
@@ -104,11 +121,29 @@ components:{
       console.log(this.ogCommon);
     },
 
+    mounted() {
+      console.log(123);
+      
+    　　// 此处true需要加上，不加滚动事件可能绑定不成功
+        window.addEventListener("scroll", this.handleScroll, true);
+      },
 
   }
 </script>
 
 <style scoped>
+/* 动画 */
+/* .s_title-enter-active, .s_title-leave-active{
+    transition: opacity 
+}
+
+.s_title-enter, .s_title-leave-to{
+    opacity: 0;
+}
+.s_title-leave, .s_title-enter-to{
+    opacity: 1;
+} */
+
 .originalPages{
   background: #001a26;
 }

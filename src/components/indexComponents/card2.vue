@@ -147,7 +147,8 @@ export default {
       icon2:state=>state.card.icon2,
       original_face:state=>state.card.original_face,
       bg:state=>state.card.bg,
-  })}
+  })
+  }
 }
 </script>
 
