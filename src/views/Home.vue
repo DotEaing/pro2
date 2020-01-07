@@ -17,8 +17,6 @@ import cennuo from "../components/indexComponents/cennuo.vue"
     }
   },
 
-
-
 components:{
 carousel_1,
 work_modules,

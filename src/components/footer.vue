@@ -8,12 +8,12 @@
         <div class="foot lf">
            
             <ul class="default-pc-nav-footer  ftnav cl ">
-                <li v-for="(name,index) of nav" :key="index" class="lf">
+                <li v-for = "(name,index) of nav" :key="index" class="lf">
                     <router-link :to="name.link" >
                          <span 
                           :class="{'font-color':index == hoverIndex}" 
-                            @mouseover="hoverIndex=index"
-                            @mouseleave="hoverIndex=-1">
+                            @mouseover = "hoverIndex=index"
+                            @mouseleave = "hoverIndex=-1">
                             {{name.title}}</span>
                     </router-link>
                 </li>
@@ -23,8 +23,8 @@
            
             <ul class="lx cl lf">
             <li class="wb">
-                <a href="javascript:void(0)" target="_blank" rel="nofollow">
-                <img src="@/assets/img/common/wb01.png" alt="" srcset="">
+                <a href = "javascript:void(0)" target = "_blank" rel = "nofollow">
+                <img src = "@/assets/img/common/wb01.png" alt = "" srcset="">
                 </a>
             </li>
             <li class="wx">

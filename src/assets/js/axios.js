@@ -18,6 +18,12 @@ var form={
         axios.get(url,{params:{img_folder}}) 
         .then(callback)
     },
+
+    y_img(url,name,img_folder,callback){
+        axios.get(url,{params:{img_folder,name}}) 
+        .then(callback)
+    },
+
     // 获取单组图片
     allImg(url,name,img_folder,callback){
         axios.get(url,{params:{img_folder,name}}) 

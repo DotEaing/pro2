@@ -24,4 +24,6 @@ export default {
   background: #001a26;
 }
 
+
+
 </style>

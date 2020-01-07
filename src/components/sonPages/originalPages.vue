@@ -78,9 +78,9 @@ watch:{
          this.reset_card()
       },
       
-      get_y_k_img(url){
-        this.get_k_Img(url);
-        this.get_y_Img(url);
+      get_y_img(url,name){
+        var obj={url,name} 
+        this.get_y_Img(obj);
       },
       get_o_Img(url,name,head_img){
           var obj={url,name}           
@@ -108,7 +108,7 @@ components:{
     },
     created(){
       
-      this.original==""?this.get_y_k_img("/home"):console.log(this.original);
+      this.original==""?this.get_y_img("/original",this.name):console.log(this.original);
       
       if (this.ogCommon=="") {
         this.get_o_Img("/originalPages",this.name,this.head_img)
@@ -117,12 +117,12 @@ components:{
         this.get_o_Img("/originalPages",this.name,this.head_img)
        }
 
-      console.log('==================================tt==');
-      console.log(this.ogCommon);
+      // console.log('==================================tt==');
+      // console.log(this.ogCommon);
     },
 
     mounted() {
-      console.log(123);
+      // console.log(this.name);
       
     　　// 此处true需要加上，不加滚动事件可能绑定不成功
         window.addEventListener("scroll", this.handleScroll, true);

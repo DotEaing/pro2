@@ -25,24 +25,30 @@ data(){
 },
 
   methods:{
-        ...mapActions(["get_k_Img","get_y_Img"]),
-        get_y_k_img(url){
-          this.get_k_Img(url);
-          this.get_y_Img(url);
-        }
+        ...mapActions(["get_k_Img","get_y_Img",]),
+          get_k_img(url){
+        this.get_k_Img(url);
+      },
     },
 
-  computed:{...mapState({client:state=>state.card.client})},
+  computed:{...mapState({
+    client:state=>state.card.client,
+    
+
+    })
+    },
 
   components:{card},
 
   created(){
-    this.client==""?this.get_y_k_img("/home"):console.log(this.client);
+    this.client==""?this.get_k_img("/home"):console.log(this.client);
+
   }
 
 }
 </script>
 
+l
 <style scoped>
 .clientPages{
   background: #001a26;

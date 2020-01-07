@@ -31,6 +31,7 @@
 
 <script>
 // import {mapState,mapActions,mapGetters,mapMutations} from "vuex"
+
 export default {
   props:["con"],
     data(){

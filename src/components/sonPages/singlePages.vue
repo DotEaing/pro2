@@ -10,7 +10,7 @@
     <div class="pub"> </div>
       <ul>
         <li>
-        <span><img :src="head_img" alt="5" id="imgWay" ref="imgWay" ></span>
+        <span><img :src="B_Img" alt="5" id="imgWay" ref="imgWay" ></span>
         <div class="box2">
          
             <!-- <i class="img_list"  v-for="(itmes,index) of single " :key="index">
@@ -41,29 +41,36 @@
               <em class="e03"></em>
               <em class="e04"></em>
           </div>
-
           </li>
+
+        <flip :con="con"></flip>
+
       </ul>
       </div>
     </div>
     </div>
-    <floatcat></floatcat>
     </div>
+    <floatcat ></floatcat>
 </div>
 </template>
 
 <script>
-import floatcat from "@/components/floatcat.vue"
+
+const flip =()=> import( "@/components/indexComponents/flip.vue") 
+const floatcat =()=> import( "@/components/floatcat.vue") 
 import {mapState,mapActions,mapGetters,mapMutations} from "vuex"
 export default {
   props:["name","head_img"],
 
-  components:{floatcat},
+  components:{floatcat,flip},
 
   data(){
     return{
-      // name:"<新品第四季>02",
-      // head_img:"n",
+
+      con:{name:this.name,head_img:this.head_img},
+   
+
+      B_Img:"",
    
       bg:{
         backgroundImage:"url("+require("@/assets/img/common/sonPages/kp_gg.png"),
@@ -146,9 +153,7 @@ export default {
        
        },
        
-      beforCrete(){
-        
-        },
+     
      created(){
        console.log('====================================');
        console.log(0,this.name,this.head_img,this.single);
@@ -160,11 +165,20 @@ export default {
         this.rester();
         this.get_single_Imgs("/singlePages",this.name,this.head_img)
        }
+
+       
+       
    },
 
      mounted(){
       
      },
+
+     updated(){
+        var tt = Object.assign( {}, this.single )   //解决vue数据保护，可以从 __ob__:Observer 中无法取值的问题
+            console.log( 1,tt[0].src );
+            this.B_Img = tt[0].src;
+     }
 
 
 }
@@ -223,14 +237,15 @@ export default {
 }
 .singlePages .view-show .show01 li .box2 .img_list{
     width: auto;
+    z-index: -10000
     
 }
 
 .singlePages .view-show .show01 li .box2 .img_list img{
   width: auto;
   height: 120px;
-
   border: 1px solid #2b3d41;
+  
 }
 
 .singlePages .view-show  .show01 li .box2 em{
@@ -298,5 +313,8 @@ width: 50px !important;
 .swiper-button-next{
 width: 50px !important;
 }
+
+
+
 
 </style>

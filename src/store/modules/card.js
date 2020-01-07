@@ -143,7 +143,6 @@ async get_single_n_Img(context,obj){
         var obj ={name:t.name,src:require(`../../../../serve/${t.src}`),link:`${t.link}`}
       // 拼接到item末尾
       context.state.single.push(obj)
-
     }
   }) 
 },
@@ -178,11 +177,11 @@ async get_o_head_Img(context,obj){
 // =================================================================
 
 // 样片首张
-async get_y_Img(context,url){
-  console.log(url)
+async get_y_Img(context,obj){
+  console.log(obj)
   var a = await new Promise((resolve,reject)=>{
     // 获取图片地址
-    form.img(url,context.state.img_folder.y_img,res=>{
+    form.y_img(obj.url,obj.name,context.state.img_folder.y_img,res=>{
        resolve(res.data)
     })
   })
@@ -218,7 +217,6 @@ async get_single_y_Img(context,obj){
     }
   }) 
 },
-
 // ==========================================================
 
 };

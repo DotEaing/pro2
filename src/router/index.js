@@ -12,13 +12,13 @@ const retrievePwd  = ()=>import( /*webpackChunkName:"retrievePwd"*/ "@/component
 const retrievePwd2  = ()=>import( /*webpackChunkName:"retrievePwd2"*/ "@/components/login/retrievePwd2.vue")
 
 // son
-const newPages  = ()=>import( /*webpackChunkName:"newPages"*/ "@/components/sonPages/newPages.vue")
 const activeityPages  = ()=>import( /*webpackChunkName:"activeityPages"*/ "@/components/sonPages/activeityPages.vue")
-const clientPages  = ()=>import( /*webpackChunkName:"clientPages"*/ "@/components/sonPages/clientPages.vue")
 const originalPages  = ()=>import( /*webpackChunkName:"originalPages"*/  "@/components/sonPages/originalPages.vue")
 const singlePages  = ()=>import( /*webpackChunkName:"singlePages"*/  "@/components/sonPages/singlePages.vue")
+const clientPages  = ()=>import( /*webpackChunkName:"clientPages"*/ "@/components/sonPages/clientPages.vue")
+const newPages  = ()=>import( /*webpackChunkName:"newPages"*/ "@/components/sonPages/newPages.vue")
 
-
+const flip  = ()=>import( /*webpackChunkName:"flip"*/ "@/components/indexComponents/flip.vue")
 
 Vue.use(VueRouter)
 
@@ -27,7 +27,7 @@ const routes = [
     path: '/home',
     name: 'home',
     component: Home,
-    alias:"/"
+    alias:"/"             //第二个地址名
     // meta:{
     //   keepAlive:true
     // }
@@ -93,9 +93,15 @@ const routes = [
       } else {
           next()
       }
-  }
-
+    }
   },
+
+  {
+    path: '/flip',
+    name: 'flip',
+    component: flip
+  },
+  
 
 ]
 

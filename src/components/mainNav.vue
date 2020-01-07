@@ -118,9 +118,9 @@ export default {
         ...mapMutations(["reset_card"])
     }),
     created(){
-        console.log('====================================1111');
-        console.log(this.loginShow);
-        console.log('====================================');
+        // console.log('====================================1111');
+        // console.log(this.loginShow);
+        // console.log('====================================');
     }
 
       
