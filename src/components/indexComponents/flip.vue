@@ -22,11 +22,35 @@ props:["con"],
     }
   },
 
+  mouthed:{
+    async messageData(){
+      // 执行查找
+      let a = new Promise((resolve,reject)=>{
+        // 发送请求
+        url = "flip"
+        obj = {}
+        this.axios(url,{params:obj}).then( res=> {
+          // 查询到上下两个的名字
+          resolve(res.data.data)
+        })
+        let b = new Promise((resolve,reject)=>{
+          for (const t of a) {
+            var obj= {name:t.name}
+            name.push(obj)
+          }
+        })
+      }) 
+    }
+
+  },
+
   created(){
+
         /** 查找此组上一组和下一组的名字（要写服务器代码 ），
          * 如果查找为空按钮消失，如果不为空则赋值名字为按钮的 value ，
          * 点击出现跳转事件，同 card的 点击事件
          * */ 
+
   }
 
 }

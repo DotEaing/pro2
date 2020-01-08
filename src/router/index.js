@@ -19,6 +19,7 @@ const clientPages  = ()=>import( /*webpackChunkName:"clientPages"*/ "@/component
 const newPages  = ()=>import( /*webpackChunkName:"newPages"*/ "@/components/sonPages/newPages.vue")
 
 const flip  = ()=>import( /*webpackChunkName:"flip"*/ "@/components/indexComponents/flip.vue")
+const page  = ()=>import( /*webpackChunkName:"flip"*/ "@/components/indexComponents/page.vue")
 
 Vue.use(VueRouter)
 
@@ -100,6 +101,11 @@ const routes = [
     path: '/flip',
     name: 'flip',
     component: flip
+  },
+  {
+    path: '/page',
+    name: 'page',
+    component: page
   },
   
 

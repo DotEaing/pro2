@@ -9,6 +9,7 @@
             <!-- 修改传入子组件的对象就可以 -->
                 <card :con="client"></card> 
             </div>
+            <page></page>
         </div>
     </div>
   </div>
@@ -17,6 +18,7 @@
 <script>
 import {mapState,mapActions,mapGetters,mapMutations} from "vuex"
 import card from "@/components/indexComponents/card.vue"
+import page from "@/components/indexComponents/page.vue"
 export default {
 data(){
   return{
@@ -38,7 +40,7 @@ data(){
     })
     },
 
-  components:{card},
+  components:{card,page},
 
   created(){
     this.client==""?this.get_k_img("/home"):console.log(this.client);

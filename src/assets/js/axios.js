@@ -29,6 +29,7 @@ var form={
         axios.get(url,{params:{img_folder,name}}) 
         .then(callback)
     },
+  
     
 }
 export default form
