@@ -9,9 +9,11 @@
             <!-- 修改传入子组件的对象就可以 -->
                 <card :con="client"></card> 
             </div>
-            <page></page>
         </div>
     </div>
+            <div class="mid cl" >
+                <page :con="client"></page>
+            </div>
   </div>
 </template>
 
@@ -44,6 +46,9 @@ data(){
 
   created(){
     this.client==""?this.get_k_img("/home"):console.log(this.client);
+    console.log('====================================');
+    console.log(this.client.length);
+    console.log('====================================');
 
   }
 

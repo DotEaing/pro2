@@ -17,7 +17,7 @@
               <img :src="itmes.src" alt="" srcset="">
             </i> -->
 
-              <swiper :options="swiperOption" ref="mySwiper" v-if="single.length>=3" > <!-- 先加载数据否则swiper循环轮播失效 -->
+              <swiper :options="swiperOption" ref="mySwiper" v-if="single.length>=1" > <!-- 先加载数据否则swiper循环轮播失效 -->
                   <swiper-slide 
                   v-for="(itmes, index) of single" 
                   :key="index" 
