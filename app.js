@@ -43,24 +43,36 @@ server.use( bodyParser.urlencoded({
 /** 路由 */
 
 // 获取首张图片
+// server.get('/home',(req,res)=>{
+//   // var sql="select class,k_id from panxz_k_img  where "
+//   var a=req.query.img_folder;
+//   // 页数
+//   var pno = "";
+//   // 每页数量 
+//   var ps = 8;
+//   // 设置默认值
+//   if(!pno){pno=1}
+//   ps = parseInt(ps);
+//   var offset = (pno-1)*ps;
+//   var sql =`select * from ( select * from ${a} group by class) as base limit ${offset},${ps}` //group by默认取分组第一条
+//   console.log(sql);
+//   pool.query(sql,(err,result)=>{
+//     if(err) throw err;
+//     res.send(result)
+//   })
+// })
+
 server.get('/home',(req,res)=>{
   // var sql="select class,k_id from panxz_k_img  where "
   var a=req.query.img_folder;
-  // 页数
-  var pno = "";
-  // 每页数量 
-  var ps = 8;
-  // 设置默认值
-  if(!pno){pno=1}
-  ps = parseInt(ps);
-  var offset = (pno-1)*ps;
-  var sql =`select * from ( select * from ${a} group by class) as base limit ${offset},${ps}` //group by默认取分组第一条
+  var sql =`select * from ( select * from ${a} group by class) as base` //group by默认取分组第一条
   console.log(sql);
   pool.query(sql,(err,result)=>{
     if(err) throw err;
     res.send(result)
   })
 })
+
 
 
 server.get('/original',(req,res)=>{

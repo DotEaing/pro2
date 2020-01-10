@@ -63,6 +63,7 @@ export default {
       // },
 
       // 利用已获得的数据判断用多少数据
+      
       //  遍历页数
       pons: function () {
         for(var sum = 0;sum<Math.ceil(this.con.length/8);sum++){
